@@ -22,7 +22,14 @@ h3{font-size:22px;font-weight:700}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}
 .lead{font-size:18px;color:var(--ink-2)}
 section{padding:96px 0}
-@media(max-width:640px){section{padding:64px 0}}
+@media(max-width:640px){
+  section{padding:44px 0}
+  h2{font-size:32px;line-height:1.1;letter-spacing:-.025em}
+  .sec-head{margin-bottom:28px}
+  .sec-head p{margin-top:12px}
+  .lead{font-size:17px}
+  .page-hero{padding:40px 0 28px}
+}
 .sec-head{max-width:740px;margin:0 auto 56px;text-align:center}
 .sec-head p{margin-top:16px}
 
