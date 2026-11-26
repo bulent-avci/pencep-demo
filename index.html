@@ -165,7 +165,6 @@
 .cam-note{font-size:12.5px;color:#B54708;background:#FFF0E5;border-radius:10px;padding:8px 10px;margin-top:8px}
 .cam-note a{font-weight:700;color:var(--brand)}
 .config.cam-mode .manual-only{display:none}
-@media(max-width:480px){.hide-s{display:none}}
 
 /* kimler için */
 .aud{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -326,17 +325,6 @@
 .sf-dots i{width:8px;height:8px;border-radius:50%;background:#C3CDDD;transition:.3s}
 .sf-dots i.on{background:var(--brand);width:22px;border-radius:8px}
 
-/* mobil alt çubuk: Hızlı Ulaş */
-.quickbar{display:none}
-@media(max-width:760px){
-  .wa-fab{display:none}
-  .quickbar{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:70;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);box-shadow:0 -10px 30px -18px rgba(10,22,48,.35);transform:translateY(110%);transition:transform .3s}
-  .quickbar.show{transform:none}
-  .quickbar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:14.5px;padding:13px 8px;border-radius:14px;white-space:nowrap}
-  .quickbar .qb-call{flex:1;background:var(--ink);color:#fff}
-  .quickbar .qb-wa{background:var(--wa);color:#fff}
-  body{padding-bottom:76px}
-}
 </style>
 </head>
 <body>
@@ -353,7 +341,7 @@
     </nav>
     <div class="nav-cta">
       <a href="demo.html" class="btn btn-ghost btn-sm">Demo İste</a>
-      <a href="#indir" class="btn btn-primary btn-sm">21 Gün Ücretsiz Dene</a>
+      <a href="#indir" class="btn btn-primary btn-sm">21 Gün Ücretsiz<span class="hide-s"> Dene</span></a>
       <button class="burger" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -859,10 +847,6 @@
 
 <!-- Masaüstü: WhatsApp balonu · Mobil: alta yapışık Hızlı Ulaş çubuğu -->
 <a class="wa-fab" href="https://wa.me/905305407587?text=Merhaba%2C%20PenCep%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." aria-label="WhatsApp ile yazın"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6s.6-1.9.9-2.1c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.6-.1 1.2z"/></svg></a>
-<nav class="quickbar" aria-label="Hızlı ulaş">
-  <a class="qb-call" href="demo.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>Demo İste</a>
-  <a class="qb-wa" href="https://wa.me/905305407587?text=Merhaba%2C%20PenCep%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>WhatsApp'tan Sorun</a>
-</nav>
 
 <script src="assets/site.js"></script>
 <script>
@@ -870,9 +854,6 @@
 const KONTENJAN = 20;
 document.querySelectorAll('[data-kontenjan]').forEach(e=>e.textContent=KONTENJAN);
 
-// Mobil hızlı ulaş çubuğu: hero geçilince görünür
-const qb=document.querySelector('.quickbar');
-addEventListener('scroll',()=>qb.classList.toggle('show',scrollY>420),{passive:true});
 
 // ===== Selfie slaytları (başlık metinlerini buradan düzenleyin) =====
 (function(){

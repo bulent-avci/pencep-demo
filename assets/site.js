@@ -60,6 +60,16 @@
       if(e.shiftKey&&i<=0){e.preventDefault();f[f.length-1].focus()}else if(!e.shiftKey&&i===f.length-1){e.preventDefault();f[0].focus()}}
   });
 
+  // ===== Mobil alt çubuk (tüm sayfalar) =====
+  const qbar=document.createElement('nav');
+  qbar.className='quickbar';qbar.setAttribute('aria-label','Hızlı erişim');
+  qbar.innerHTML=`<a class="qb-wa" href="${WA}${encodeURIComponent('Merhaba, PenCep hakkında bilgi almak istiyorum.')}" aria-label="WhatsApp'tan yazın"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></a>
+    <a class="qb-demo" href="demo.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>Demo İste</a>
+    <a class="qb-try" href="#indir">21 Gün Ücretsiz</a>`;
+  document.body.appendChild(qbar);
+  const qbShow=()=>qbar.classList.toggle('show',scrollY>300||document.documentElement.scrollHeight<=innerHeight+300);
+  addEventListener('scroll',qbShow,{passive:true});qbShow();
+
   // ===== WhatsApp çevrim içi mesajı =====
   // Sadece hafta içi 09:00–18:00 (Türkiye saati) görünür. İsim ve saatleri buradan değiştirin.
   const ONLINE_NAME='Batuhan A.', ONLINE_START=9, ONLINE_END=18;
