@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo İsteyin · PenCep</title>
+<meta name="description" content="PenCep'i kendi profil markanız ve fiyatlarınızla, uzmanımız eşliğinde görün. Bayi, satış ekibi ve pencere üreticileri için ücretsiz demo.">
+<link rel="icon" href="img/pencep-ikon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.steps3{list-style:none;display:flex;flex-direction:column;gap:22px;margin-top:32px;counter-reset:s}
+.steps3 li{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start}
+.steps3 li::before{counter-increment:s;content:counter(s);width:44px;height:44px;border-radius:14px;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:800}
+.steps3 b{display:block;font-size:17px}
+.steps3 span{color:var(--ink-2);font-size:15px}
+.aside-box{margin-top:36px;border:1px solid var(--line);border-radius:var(--r);padding:22px;background:var(--bg-soft)}
+.aside-box b{display:block;margin-bottom:4px}
+.aside-box p{color:var(--ink-2);font-size:14.5px;margin-bottom:14px}
+.aside-box .row{display:flex;flex-wrap:wrap;gap:10px}
+.mini-trust{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:28px;font-size:13.5px;color:var(--muted);font-weight:600}
+.mini-trust span::before{content:"✓";color:var(--ok);margin-right:6px;font-weight:800}
+.send-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.send-row{grid-template-columns:1fr}}
+.priv{font-size:12.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo" aria-label="PenCep ana sayfa"><img src="img/pencep-ikon.png" alt=""><span>Pen<em>Cep</em></span></a>
+    <nav class="nav-links" aria-label="Ana menü">
+      <a href="index.html#ozellikler">Özellikler</a><a href="index.html#kimler">Kimler İçin</a><a href="index.html#fiyat">Fiyatlar</a><a href="index.html#sss">SSS</a><a href="iletisim.html">İletişim</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="demo.html" class="btn btn-ghost btn-sm" aria-current="page">Demo İste</a>
+      <a href="index.html#indir" class="btn btn-primary btn-sm">21 Gün Ücretsiz Dene</a>
+      <button class="burger" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mmenu">
+    <a href="index.html#ozellikler">Özellikler</a><a href="index.html#kimler">Kimler İçin</a><a href="index.html#fiyat">Fiyatlar</a><a href="index.html#sss">SSS</a><a href="iletisim.html">İletişim</a>
+    <a href="index.html#indir" class="btn btn-primary">21 Gün Ücretsiz Dene</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Ana sayfa</a> / Demo İste</div>
+    <h1>PenCep'i kendi markanızla görün.</h1>
+    <p class="lead">30 dakikalık online görüşmede, kullandığınız profil markası ve fiyat kurallarınızla örnek bir teklifi birlikte hazırlayalım.</p>
+  </div>
+</div>
+
+<section style="padding-top:24px">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">Nasıl ilerliyoruz?</span>
+      <ol class="steps3">
+        <li><div><b>Formu doldurun</b><span>Firmanızı, kullandığınız markaları ve cihazınızı öğrenelim.</span></div></li>
+        <li><div><b>Sizi arayalım</b><span>Aynı iş günü içinde dönüş yapar, size uygun saati belirleriz.</span></div></li>
+        <li><div><b>Kendi verinizle deneyin</b><span>Markanız tanımlı, fiyatlarınız ayarlı şekilde 21 günlük denemeye başlayın.</span></div></li>
+      </ol>
+      <div class="mini-trust"><span>Ücretsiz</span><span>Satış baskısı yok</span><span>36 yıllık Technosoft tecrübesi</span></div>
+      <div class="aside-box">
+        <b>Form doldurmak istemiyor musunuz?</b>
+        <p>Doğrudan yazın ya da arayın; hafta içi 09:00–18:00, Cumartesi 09:00–13:00.</p>
+        <div class="row">
+          <a class="btn btn-wa btn-sm" href="https://wa.me/905305407587?text=Merhaba%2C%20PenCep%20i%C3%A7in%20demo%20talep%20ediyorum.">WhatsApp'tan Yazın</a>
+          <a class="btn btn-ghost btn-sm" href="tel:+902164144935">+90 216 414 49 35</a>
+        </div>
+      </div>
+    </div>
+
+    <form class="form-card" id="demoForm" novalidate>
+      <h2>Demo talep formu</h2>
+      <p class="sub">Zorunlu alanlar <span style="color:#B42318">*</span> ile işaretlidir.</p>
+      <div class="fields">
+        <div class="field"><label for="ad">Ad Soyad <span>*</span></label><input id="ad" name="Ad Soyad" required autocomplete="name"></div>
+        <div class="field"><label for="firma">Firma <span>*</span></label><input id="firma" name="Firma" required autocomplete="organization"></div>
+        <div class="field"><label for="tel">Telefon <span>*</span></label><input id="tel" name="Telefon" type="tel" required autocomplete="tel" placeholder="05xx xxx xx xx"></div>
+        <div class="field"><label for="eposta">E-posta</label><input id="eposta" name="E-posta" type="email" autocomplete="email"></div>
+        <div class="field"><label for="sehir">Şehir</label><input id="sehir" name="Şehir" autocomplete="address-level1"></div>
+        <div class="field"><label for="kisi">Kullanıcı sayısı</label>
+          <select id="kisi" name="Kullanıcı sayısı"><option>1</option><option>2–5</option><option>6–20</option><option>20+</option></select></div>
+        <div class="field full"><label>Firma tipi <span>*</span></label>
+          <div class="opts">
+            <label><input type="radio" name="Firma tipi" value="Bayi" required><span>Bayi</span></label>
+            <label><input type="radio" name="Firma tipi" value="Satış ekibi"><span>Satış ekibi</span></label>
+            <label><input type="radio" name="Firma tipi" value="Pencere üreticisi"><span>Pencere üreticisi</span></label>
+          </div></div>
+        <div class="field full"><label>Kullanacağınız cihaz</label>
+          <div class="opts">
+            <label><input type="checkbox" name="Cihaz" value="Android telefon"><span>Android telefon</span></label>
+            <label><input type="checkbox" name="Cihaz" value="Android tablet"><span>Android tablet</span></label>
+            <label><input type="checkbox" name="Cihaz" value="iPhone"><span>iPhone</span></label>
+            <label><input type="checkbox" name="Cihaz" value="iPad"><span>iPad</span></label>
+          </div></div>
+        <div class="field full"><label for="marka">Kullandığınız profil markaları</label><input id="marka" name="Markalar" placeholder="Örn. Rehau, Winsa"></div>
+        <div class="field full"><label for="not">Notunuz</label><textarea id="not" name="Not" placeholder="Görmek istediğiniz özellikler, uygun gün/saat..."></textarea></div>
+      </div>
+      <div class="form-foot">
+        <label class="check"><input type="checkbox" id="kvkk" required><span><a href="#">KVKK Aydınlatma Metni</a>'ni okudum; demo talebim için benimle iletişime geçilmesini kabul ediyorum. <b style="color:#B42318">*</b></span></label>
+        <div class="send-row">
+          <button type="submit" class="btn btn-primary" data-ch="wa">WhatsApp ile Gönder</button>
+          <button type="submit" class="btn btn-ghost" data-ch="mail">E-posta ile Gönder</button>
+        </div>
+        <p class="priv">Form bilgileri sitede saklanmaz; mesajınız seçtiğiniz uygulamada hazırlanır, siz gönderirsiniz.</p>
+        <div class="form-msg" id="msg">Mesajınız hazırlandı. Gönderdikten sonra en kısa sürede dönüş yapacağız.</div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><a href="index.html" class="logo"><img src="img/pencep-ikon.png" alt=""><span>Pen<em>Cep</em></span></a><p>PenCep bir Technosoft uygulamasıdır. Pencere ve kapı üreticileri için çizim, üretim ve otomasyon yazılımları.</p></div>
+      <div><h4>Ürün</h4><ul><li><a href="index.html#ozellikler">Özellikler</a></li><li><a href="index.html#dene">Canlı deneyin</a></li><li><a href="index.html#fiyat">Fiyatlar</a></li></ul></div>
+      <div><h4>Kimler için</h4><ul><li><a href="index.html#kimler">Bayiler</a></li><li><a href="index.html#kimler">Satış ekipleri</a></li><li><a href="index.html#kimler">Pencere üreticileri</a></li></ul></div>
+      <div><h4>Şirket</h4><ul><li><a href="https://www.technosoft.com.tr/">Technosoft</a></li><li><a href="demo.html">Demo iste</a></li><li><a href="iletisim.html">İletişim</a></li></ul></div>
+      <div><h4>İletişim</h4><ul><li><a href="tel:+902164144935">+90 216 414 49 35</a></li><li><a href="https://wa.me/905305407587">WhatsApp: +90 530 540 75 87</a></li><li><a href="mailto:mail@technosoft.com.tr">mail@technosoft.com.tr</a></li><li>Kadıköy, İstanbul</li></ul></div>
+    </div>
+    <div class="legal"><span>© 2026 Technosoft Bilgisayar Yazılım San. ve Tic. Ltd. Şti.</span><div><a href="#">Gizlilik</a><a href="#">KVKK</a><a href="#">Kullanım koşulları</a></div></div>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/905305407587" aria-label="WhatsApp ile yazın"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></a>
+
+<script src="assets/site.js"></script>
+<script>
+// Form: veriyi sunucuya göndermez; WhatsApp ya da e-posta mesajı hazırlar.
+// Bir CRM / form servisi bağlanacaksa burası değiştirilecek.
+const form=document.getElementById('demoForm');let ch='wa';
+form.querySelectorAll('[data-ch]').forEach(b=>b.addEventListener('click',()=>ch=b.dataset.ch));
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!form.checkValidity()){form.reportValidity();return}
+  const fd=new FormData(form),lines=['PenCep demo talebi'];
+  const seen={};for(const [k,v] of fd){if(!v)continue;seen[k]=seen[k]?seen[k]+', '+v:v}
+  for(const k in seen)lines.push(k+': '+seen[k]);
+  const text=lines.join('\n');
+  const url=ch==='wa'?'https://wa.me/905305407587?text='+encodeURIComponent(text)
+    :'mailto:mail@technosoft.com.tr?subject='+encodeURIComponent('PenCep demo talebi')+'&body='+encodeURIComponent(text);
+  document.getElementById('msg').classList.add('show');
+  window.open(url,'_blank');
+});
+</script>
+</body>
+</html>

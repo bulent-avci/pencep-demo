@@ -1,0 +1,1017 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PenCep · Teklif müşterinin yanında hazır</title>
+<meta name="description" content="PenCep ile pencere ve kapı ölçüsünü telefonla alın, çizin, markanızın profil verisiyle fiyatlayın ve PDF teklifi müşterinin yanında WhatsApp'tan gönderin. Bir Technosoft uygulamasıdır.">
+<link rel="icon" href="img/pencep-ikon.png">
+<link rel="apple-touch-icon" href="img/pencep-ikon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+/* ---- Ana sayfaya özel ---- */
+.hero{padding:64px 0 88px;background:radial-gradient(1200px 500px at 85% 10%,#E3ECFF 0,transparent 60%),radial-gradient(700px 400px at 0% 100%,#FFF1E6 0,transparent 60%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+@media(max-width:960px){.hero-grid{grid-template-columns:1fr}}
+.pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 6px;font-size:13px;font-weight:600;color:var(--ink-2)}
+.pill b{background:var(--brand-soft);color:var(--brand);border-radius:999px;padding:3px 10px;font-size:12px}
+.hero h1{font-size:clamp(38px,5.6vw,66px);font-weight:800;margin:22px 0 20px}
+.rotator{display:inline-block;color:var(--brand);position:relative;transition:opacity .25s}
+.rotator::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.14em;background:var(--accent);opacity:.35;border-radius:4px}
+.hero .lead{max-width:540px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 18px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--muted);font-weight:500}
+.trust span{display:flex;align-items:center;gap:6px}
+.trust svg{color:var(--ok)}
+.users{display:flex;align-items:center;gap:14px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
+.avatars{display:flex}
+.avatars span{width:42px;height:42px;border-radius:50%;background:#fff;border:2px dashed var(--ph-line);margin-left:-12px;display:grid;place-items:center;font-size:8px;font-weight:700;color:#97A3B8;line-height:1.05;text-align:center;box-shadow:0 0 0 3px #fff}
+.avatars span:first-child{margin-left:0}
+.users b{display:block;font-size:20px;font-weight:800;letter-spacing:-.02em}
+.users small{color:var(--muted);font-size:13.5px}
+
+.stage{position:relative;height:620px;display:grid;place-items:center}
+@media(max-width:640px){.stage{height:520px}}
+.stage .device{width:280px}
+@media(max-width:640px){.stage .device{width:230px}}
+.hero-screens{position:relative}
+.hero-screens img,.hero-screens .ph{transition:opacity .45s}
+.hero-screens>:not(:first-child){position:absolute;top:9px;left:9px;width:calc(100% - 18px)}
+.hero-screens>:not(.on){opacity:0}
+.float{position:absolute;background:#fff;border-radius:16px;padding:12px 16px;box-shadow:var(--shadow);font-size:13px;display:flex;align-items:center;gap:10px;border:1px solid var(--line);animation:bob 5s ease-in-out infinite;z-index:2}
+.float .ico{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none}
+.float b{display:block;font-size:14px}
+.float small{color:var(--muted);font-size:11.5px}
+.f1{top:40px;left:0}.f2{top:270px;right:0;animation-delay:-1.6s}.f3{bottom:60px;left:10px;animation-delay:-3.2s}
+@media(max-width:640px){.float{transform:scale(.85)}.f1{left:-6px}.f2{right:-6px}}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -10px}}
+
+/* markalar */
+.brands-sec{padding:80px 0 72px;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.brands-head{text-align:center;max-width:720px;margin:0 auto 40px}
+.brands-head h2{font-size:clamp(26px,3.4vw,40px)}
+.brands-head p{color:var(--ink-2);margin-top:12px;font-size:17px}
+.brands-head .count{display:inline-flex;gap:8px;align-items:center;margin-top:18px;background:var(--brand-soft);color:var(--brand);font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px}
+.logo-marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);padding:8px 0}
+.logo-track{display:flex;gap:16px;width:max-content;animation:logos 55s linear infinite}
+.logo-marquee.rev .logo-track{animation-direction:reverse;animation-duration:62s}
+.logo-marquee:hover .logo-track{animation-play-state:paused}
+@keyframes logos{to{transform:translateX(calc(-50% - 8px))}}
+.brand-logo{width:184px;height:88px;flex:none;border:1px solid var(--line);border-radius:16px;background:#fff;display:grid;place-items:center;padding:16px 22px;transition:border-color .2s,box-shadow .2s,transform .2s}
+.brand-logo:hover{border-color:var(--brand);box-shadow:0 14px 30px -18px rgba(10,22,48,.45);transform:translateY(-3px)}
+.brand-logo img{max-height:46px;max-width:100%;width:auto;object-fit:contain;filter:grayscale(1) contrast(1.05);opacity:.72;transition:.25s}
+.brand-logo:hover img{filter:none;opacity:1}
+.brand-logo .wm{display:none;font-weight:800;font-size:15px;letter-spacing:.06em;color:#7A869C;text-transform:uppercase}
+.brand-logo.no-img img{display:none}.brand-logo.no-img .wm{display:block}
+@media(max-width:640px){.brand-logo{width:140px;height:72px;padding:12px 16px}.brand-logo img{max-height:36px}}
+.brands-foot{text-align:center;margin-top:28px;font-size:15px;color:var(--muted)}
+.brands-foot a{color:var(--brand);font-weight:700}
+
+/* rakamlar */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px;box-shadow:0 10px 30px -20px rgba(10,22,48,.3)}
+.stat b{font-size:34px;font-weight:800;letter-spacing:-.03em;display:block;color:var(--brand)}
+.stat span{color:var(--ink-2);font-size:14px;font-weight:500}
+@media(max-width:860px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* eski yol / pencep */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:860px){.compare{grid-template-columns:1fr}}
+.cmp{border-radius:var(--r);padding:32px;border:1px solid var(--line)}
+.cmp.old{background:var(--bg-soft)}
+.cmp.new{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cmp h3{margin-bottom:6px}
+.cmp .sub{font-size:14px;opacity:.7;margin-bottom:24px}
+.steps{list-style:none;display:flex;flex-direction:column;gap:14px}
+.steps li{display:flex;gap:14px;align-items:flex-start}
+.steps .n{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;background:#fff;border:1px solid var(--line);color:var(--muted)}
+.cmp.new .n{background:var(--brand);border-color:var(--brand);color:#fff}
+.steps small{display:block;font-size:13px;opacity:.7}
+.cmp .total{margin-top:28px;padding-top:20px;border-top:1px dashed currentColor;display:flex;justify-content:space-between;align-items:baseline;font-weight:700}
+.cmp .total b{font-size:28px}
+.cmp.old .total b{color:#B42318}
+.cmp.new .total b{color:#7CF3B4}
+.note{font-size:12px;color:var(--muted);text-align:center;margin-top:16px}
+
+/* özellikler */
+.tabs-index{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:48px}
+.tabs-index a{border:1px solid var(--line);background:#fff;padding:10px 18px;border-radius:999px;font-weight:600;font-size:14px;color:var(--ink-2);transition:.15s}
+.tabs-index a:hover{border-color:var(--brand);color:var(--brand)}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:56px 0;scroll-margin-top:90px}
+.feature.rev .f-text{order:2}
+@media(max-width:860px){.feature{grid-template-columns:1fr;gap:32px;padding:40px 0}.feature.rev .f-text{order:0}}
+.f-text h3{font-size:clamp(26px,3vw,36px);font-weight:800;margin:12px 0 16px}
+.f-text ul{list-style:none;margin:20px 0 28px;display:flex;flex-direction:column;gap:10px}
+.f-text li{display:flex;gap:10px;color:var(--ink-2)}
+.f-text li::before{content:"";flex:none;width:20px;height:20px;margin-top:3px;border-radius:50%;background:var(--brand-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.5l2.5 2.5L14 7.5' fill='none' stroke='%231957F5' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
+.f-btns{display:flex;flex-wrap:wrap;gap:10px}
+.f-visual{background:linear-gradient(160deg,#EAF0FB,#F7F9FD);border-radius:32px;padding:48px 24px;min-height:520px;display:grid;place-items:center;position:relative;overflow:hidden}
+.f-visual::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(25,87,245,.16),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+.f-visual>*{position:relative}
+@media(max-width:640px){.f-visual{min-height:420px;padding:36px 12px}}
+.a4{width:240px;aspect-ratio:210/297;border-radius:10px;margin-left:-40px;margin-bottom:-30px;transform:rotate(4deg);box-shadow:var(--shadow)}
+@media(max-width:640px){.a4{width:170px}}
+.wide-ph{width:100%;max-width:480px;aspect-ratio:4/3}
+
+/* canlı demo */
+.config{background:var(--ink);color:#fff;border-radius:32px;padding:48px;display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+@media(max-width:960px){.config{grid-template-columns:1fr;padding:28px}}
+@media(max-width:640px){.config{padding:20px;border-radius:24px}}
+.config h2{color:#fff}
+.config .lead{color:#C2CCE0}
+.ctrl{margin-top:24px}
+.ctrl label{display:block;font-size:13px;font-weight:700;color:#9FB0D0;margin-bottom:10px;letter-spacing:.04em;text-transform:uppercase}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{font-family:inherit;font-size:14px;font-weight:600;padding:10px 14px;border-radius:12px;border:1px solid #2B3A5E;background:#13224A;color:#DCE4F5;cursor:pointer;transition:.15s}
+.seg button.on{background:var(--brand);border-color:var(--brand);color:#fff}
+.range-row{display:flex;align-items:center;gap:14px}
+.range-row input{flex:1;accent-color:var(--accent)}
+.range-row output{min-width:86px;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.config-out{background:#fff;color:var(--ink);border-radius:24px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+@media(max-width:640px){.config-out{grid-template-columns:1fr}}
+.config-out svg{width:100%;height:auto;max-height:300px}
+.price-big{font-size:32px;font-weight:800;letter-spacing:-.03em;color:var(--brand)}
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl td{padding:8px 0;border-bottom:1px solid var(--line)}
+.tbl td:last-child{text-align:right;font-weight:700}
+.disc{font-size:11.5px;color:var(--muted);margin-top:8px}
+
+/* kamerayla deneme */
+.modes{display:flex;gap:6px;background:#13224A;border:1px solid #2B3A5E;border-radius:14px;padding:5px;margin-top:24px}
+.modes button{flex:1;font-family:inherit;font-size:14px;font-weight:700;padding:11px 10px;border-radius:10px;border:0;background:none;color:#C2CCE0;cursor:pointer}
+.modes button.on{background:#fff;color:var(--ink)}
+#camPanel{margin-top:18px}
+.cam-box{position:relative;aspect-ratio:3/4;max-height:520px;width:100%;background:#050A18;border-radius:20px;overflow:hidden;border:1px solid #2B3A5E}
+#camVideo,#camImg,#camSvg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+#camSvg{touch-action:none}
+.cam-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:72px 20px 20px;color:#C2CCE0}
+.cam-empty b{color:#fff;font-size:17px}
+.cam-empty small{font-size:13px;max-width:260px}
+.cam-err{color:#FFB27A}
+.cam-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:6px}
+#camStep2 .cam-btns{justify-content:flex-start}
+.btn-line{border-color:#2B3A5E;color:#fff;background:transparent}
+.btn-line:hover{border-color:#fff}
+.cam-remind{position:absolute;left:10px;right:10px;top:10px;z-index:3;background:rgba(255,255,255,.94);color:var(--ink);font-size:12.5px;line-height:1.45;border-radius:12px;padding:9px 12px;box-shadow:0 8px 20px -10px rgba(0,0,0,.5)}
+.shutter{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);width:68px;height:68px;border-radius:50%;background:#fff;border:0;box-shadow:0 0 0 4px rgba(0,0,0,.5),0 0 0 7px #fff;cursor:pointer;z-index:3}
+.shutter:active{transform:translateX(-50%) scale(.92)}
+.cam-hint{color:#DCE4F5;font-size:14px;margin:14px 0 10px}
+.cam-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.cam-row label{font-size:13px;font-weight:700;color:#9FB0D0;letter-spacing:.04em;text-transform:uppercase}
+.cam-row input{width:130px;font-family:inherit;font-size:16px;font-weight:700;padding:10px 12px;border-radius:10px;border:1px solid #2B3A5E;background:#13224A;color:#fff}
+.cam-note{font-size:12.5px;color:#B54708;background:#FFF0E5;border-radius:10px;padding:8px 10px;margin-top:8px}
+.cam-note a{font-weight:700;color:var(--brand)}
+.config.cam-mode .manual-only{display:none}
+@media(max-width:480px){.hide-s{display:none}}
+
+/* kimler için */
+.aud{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:860px){.aud{grid-template-columns:1fr}}
+.aud-card{border:1px solid var(--line);border-radius:var(--r);padding:32px;background:#fff;transition:.2s;display:flex;flex-direction:column}
+.aud-card:hover{border-color:var(--brand);box-shadow:var(--shadow);transform:translateY(-4px)}
+.aud-ico{width:52px;height:52px;border-radius:14px;background:var(--brand-soft);display:grid;place-items:center;color:var(--brand);margin-bottom:20px}
+.aud-card p{color:var(--ink-2);margin:10px 0 18px;flex:1}
+.aud-card .more{font-weight:700;color:var(--brand)}
+
+/* sahada */
+.field-sec{background:linear-gradient(135deg,#FFF6EE,#FFFFFF 60%)}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+@media(max-width:860px){.field-grid{grid-template-columns:1fr}}
+.icons4{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+@media(max-width:480px){.icons4{grid-template-columns:1fr}}
+.i4{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+.i4 b{display:block;margin:10px 0 4px}
+.i4 span{font-size:14px;color:var(--ink-2)}
+.field-visual{position:relative;padding-bottom:40px}
+.field-visual .person{aspect-ratio:4/4.4;width:86%;padding-right:22%}
+.field-visual .device{position:absolute;right:0;bottom:0;width:190px;transform:rotate(5deg)}
+@media(max-width:640px){.field-visual .device{width:140px}}
+
+/* video */
+.video{position:relative;aspect-ratio:16/9;max-width:960px;margin:0 auto}
+.play{width:84px;height:84px;border-radius:50%;background:var(--brand);display:grid;place-items:center;box-shadow:0 0 0 12px var(--brand-soft);border:0}
+.chapters{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:20px}
+.chapters span{font-size:13px;font-weight:600;color:var(--ink-2);background:var(--bg-soft);padding:8px 14px;border-radius:999px}
+
+/* yorumlar */
+.tgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:860px){.tgrid{grid-template-columns:1fr}}
+.tcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px;display:flex;flex-direction:column;gap:16px}
+.stars{color:#F5A524;letter-spacing:2px;font-size:18px}
+.tcard .res{font-size:22px;font-weight:800;letter-spacing:-.02em}
+.tcard q{color:var(--ink-2);quotes:"“" "”"}
+.who{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:8px}
+.avatar{width:56px;height:56px;border-radius:50%;background:#fff;border:2px dashed var(--ph-line);flex:none;display:grid;place-items:center;font-size:9px;font-weight:700;color:#97A3B8;text-align:center;line-height:1.1}
+.who b{display:block;font-size:15px}
+.who small{color:var(--muted)}
+.tcard .story{font-weight:700;color:var(--brand);font-size:14px}
+
+/* technosoft */
+.timeline{display:grid;grid-template-columns:repeat(5,1fr);margin-top:48px;position:relative}
+.timeline::before{content:"";position:absolute;top:11px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,#C3CDDD,var(--brand))}
+.tl{text-align:center;position:relative;padding:0 8px}
+.tl i{display:block;width:24px;height:24px;border-radius:50%;background:#fff;border:3px solid #C3CDDD;margin:0 auto 16px;position:relative}
+.tl:last-child i{border-color:var(--brand);background:var(--brand);box-shadow:0 0 0 6px var(--brand-soft)}
+.tl b{display:block;font-size:20px;font-weight:800}
+.tl span{font-size:14px;color:var(--ink-2)}
+@media(max-width:760px){
+  .timeline{grid-template-columns:1fr;gap:20px}
+  .timeline::before{top:0;bottom:0;left:11px;right:auto;width:2px;height:auto}
+  .tl{display:grid;grid-template-columns:24px 1fr;gap:16px;text-align:left;align-items:start}
+  .tl i{margin:0}
+}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+@media(max-width:860px){.pillars{grid-template-columns:1fr}}
+.pillar{background:var(--bg-soft);border-radius:var(--r);padding:24px}
+.pillar b{display:block;font-size:17px;margin-bottom:6px}
+.pillar span{color:var(--ink-2);font-size:14.5px}
+
+/* destek */
+.support{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:860px){.support{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.support{grid-template-columns:1fr}}
+.sup{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:#fff}
+.sup b{display:block;font-size:18px;margin:12px 0 4px}
+.sup span{font-size:14px;color:var(--ink-2)}
+
+/* fiyat */
+.quota{display:inline-flex;align-items:center;gap:10px;background:#FFF0E5;color:#B54708;border-radius:999px;padding:8px 16px;font-weight:700;font-size:14px;margin-top:20px}
+.quota .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(255,122,26,.6);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(255,122,26,0)}100%{box-shadow:0 0 0 0 rgba(255,122,26,0)}}
+.billing{display:inline-flex;background:var(--bg-soft);border-radius:999px;padding:5px;margin-top:20px;border:1px solid var(--line)}
+.billing button{font-family:inherit;border:0;background:none;padding:10px 20px;border-radius:999px;font-weight:700;font-size:14px;cursor:pointer;color:var(--ink-2)}
+.billing button.on{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(10,22,48,.12)}
+.billing em{font-style:normal;color:var(--ok);font-size:12px;margin-left:4px}
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1000px){.plans{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.plans{grid-template-columns:1fr}}
+.plan{border:1px solid var(--line);border-radius:var(--r);padding:28px;background:#fff;display:flex;flex-direction:column;position:relative}
+.plan.pop{border:2px solid var(--brand);box-shadow:var(--shadow)}
+.plan .badge{position:absolute;top:-13px;left:28px;background:var(--brand);color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px}
+.plan h3{font-size:18px}
+.plan .nb{width:48px;height:48px;border-radius:14px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-weight:800;font-size:22px;margin-bottom:16px}
+.plan.pop .nb{background:var(--brand);color:#fff}
+.plan .pdesc{color:var(--muted);font-size:14px;margin-top:4px}
+.plans-note{text-align:center;color:var(--muted);font-size:14px;margin-top:20px}
+.plan ul{list-style:none;margin:20px 0 24px;display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--ink-2);flex:1}
+.plan li::before{content:"✓";color:var(--brand);font-weight:800;margin-right:8px}
+.enterprise{margin-top:20px;border-radius:var(--r);background:var(--ink);color:#fff;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.enterprise p{color:#C2CCE0;font-size:15px;margin-top:4px}
+
+/* son çağrı */
+.final{background:var(--brand);color:#fff;border-radius:32px;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+.final::after{content:"";position:absolute;width:420px;height:420px;border:60px solid rgba(255,255,255,.07);border-radius:40px;right:-120px;top:-140px;transform:rotate(18deg)}
+.final h2{color:#fff;max-width:720px;margin:0 auto 16px}
+.final p{color:#D9E3FF;font-size:18px}
+.final .hero-ctas{justify-content:center;position:relative;z-index:1}
+@media(max-width:640px){.final{padding:44px 20px;border-radius:24px}}
+
+/* sss */
+.faq{max-width:820px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line);padding:4px 0}
+.faq summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;font-weight:700;font-size:17px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:26px;font-weight:400;color:var(--brand);transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{padding:0 0 20px;color:var(--ink-2)}
+
+/* canlı gösterge */
+.live{display:inline-flex;align-items:center;gap:10px;margin-top:14px;font-size:13.5px;font-weight:600;color:var(--ink-2);background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px}
+.live .dot{width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none;box-shadow:0 0 0 0 rgba(18,183,106,.55);animation:pulseg 1.8s infinite}
+.live b{color:var(--ink)}
+@keyframes pulseg{70%{box-shadow:0 0 0 9px rgba(18,183,106,0)}100%{box-shadow:0 0 0 0 rgba(18,183,106,0)}}
+
+/* mutlu müşteri selfie */
+.selfie-sec{background:linear-gradient(160deg,#FFF6EE 0,#fff 55%,#EEF3FF 100%);overflow:hidden}
+.selfie-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+@media(max-width:860px){.selfie-grid{grid-template-columns:1fr;gap:40px}}
+.selfie-text h2{margin:12px 0 16px}
+.selfie-text .joke{margin-top:22px;background:#fff;border:1px dashed var(--ph-line);border-radius:16px;padding:16px 18px;font-size:14.5px;color:var(--ink-2)}
+.selfie-text .joke b{color:var(--ink)}
+.selfie-stage{position:relative;display:grid;place-items:center;min-height:620px}
+@media(max-width:640px){.selfie-stage{min-height:540px}}
+.selfie-phone{width:300px;background:#0B0F1A;border-radius:46px;padding:11px;box-shadow:0 40px 80px -30px rgba(10,22,48,.55),inset 0 0 0 2px #2A3350;position:relative;z-index:1}
+@media(max-width:640px){.selfie-phone{width:258px}}
+.selfie-screen{border-radius:36px;overflow:hidden;background:#000;aspect-ratio:9/19;position:relative;display:flex;flex-direction:column}
+.sf-top{display:flex;justify-content:space-between;align-items:center;padding:16px 18px 10px;color:#fff;font-size:12px;font-weight:700}
+.sf-top .mode{background:var(--accent);color:#fff;border-radius:999px;padding:3px 10px;font-size:11px}
+.sf-view{flex:1;position:relative;margin:0 8px;border-radius:22px;overflow:hidden;background:#fff}
+.sf-slide{position:absolute;inset:0;opacity:0;transition:opacity .6s}
+.sf-slide.on{opacity:1}
+.sf-slide .ph,.sf-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0;border:0}
+/* yamuk ölçü çerçevesi: kullanıcı köşeleri tutturamamış */
+.sf-frame{position:absolute;left:14%;top:24%;width:70%;height:46%;border:2px dashed var(--accent);border-radius:4px;transform:rotate(-7deg) skewX(6deg);pointer-events:none}
+.sf-slide:nth-child(2) .sf-frame{left:20%;top:16%;width:58%;height:60%;transform:rotate(9deg) skewY(-5deg)}
+.sf-slide:nth-child(3) .sf-frame{left:8%;top:30%;width:84%;height:34%;transform:rotate(-3deg) skewX(-10deg)}
+.sf-slide:nth-child(4) .sf-frame{left:24%;top:22%;width:52%;height:50%;transform:rotate(14deg)}
+.sf-frame i{position:absolute;width:16px;height:16px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(255,255,255,.85)}
+.sf-frame i:nth-child(1){left:-9px;top:-9px}.sf-frame i:nth-child(2){right:-9px;top:-9px}.sf-frame i:nth-child(3){right:-9px;bottom:-9px}.sf-frame i:nth-child(4){left:-9px;bottom:-9px}
+.sf-dim{position:absolute;left:50%;bottom:12%;transform:translateX(-50%);background:var(--ink);color:#fff;font-weight:800;font-size:12.5px;padding:6px 12px;border-radius:10px;white-space:nowrap}
+.sf-bottom{display:flex;align-items:center;justify-content:space-between;padding:14px 26px 22px}
+.sf-thumb{width:38px;height:38px;border-radius:10px;background:#fff;border:2px dashed #5B6782}
+.sf-shutter{width:62px;height:62px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px #000,0 0 0 7px #fff}
+.sf-flip{width:38px;height:38px;border-radius:50%;background:#1E2535;display:grid;place-items:center}
+.flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:5;border-radius:22px}
+.flash.go{animation:flash .45s ease-out}
+@keyframes flash{0%{opacity:.95}100%{opacity:0}}
+.sf-cap{position:absolute;z-index:2;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:12px 16px;font-size:14px;font-weight:700;max-width:250px;transition:opacity .4s}
+.sf-cap small{display:block;font-weight:500;color:var(--muted);font-size:12.5px;margin-top:2px}
+.sf-cap.c1{top:40px;right:0}
+.sf-cap.c2{bottom:70px;left:0}
+@media(max-width:640px){.sf-cap{max-width:200px;font-size:13px;padding:10px 12px}.sf-cap.c1{right:-4px;top:10px}.sf-cap.c2{left:-4px;bottom:20px}}
+.sf-dots{display:flex;gap:6px;justify-content:center;margin-top:18px}
+.sf-dots i{width:8px;height:8px;border-radius:50%;background:#C3CDDD;transition:.3s}
+.sf-dots i.on{background:var(--brand);width:22px;border-radius:8px}
+
+/* mobil alt çubuk: Hızlı Ulaş */
+.quickbar{display:none}
+@media(max-width:760px){
+  .wa-fab{display:none}
+  .quickbar{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:70;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);box-shadow:0 -10px 30px -18px rgba(10,22,48,.35);transform:translateY(110%);transition:transform .3s}
+  .quickbar.show{transform:none}
+  .quickbar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:14.5px;padding:13px 8px;border-radius:14px;white-space:nowrap}
+  .quickbar .qb-call{flex:1;background:var(--ink);color:#fff}
+  .quickbar .qb-wa{background:var(--wa);color:#fff}
+  body{padding-bottom:76px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ DUYURU / KONTENJAN ============ -->
+<div class="announce">🎁 Lansmana özel: 21 gün ücretsiz deneme + birebir kurulum desteği · Bu ay kalan kontenjan: <b data-kontenjan>20</b> <a href="demo.html">Yerinizi ayırın →</a></div>
+
+<!-- ============ MENÜ ============ -->
+<header id="top">
+  <div class="wrap nav">
+    <a href="index.html" class="logo" aria-label="PenCep ana sayfa"><img src="img/pencep-ikon.png" alt=""><span>Pen<em>Cep</em></span></a>
+    <nav class="nav-links" aria-label="Ana menü">
+      <a href="#ozellikler">Özellikler</a><a href="#dene">Canlı Deneyin</a><a href="#kimler">Kimler İçin</a><a href="#fiyat">Fiyatlar</a><a href="#sss">SSS</a><a href="iletisim.html">İletişim</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="demo.html" class="btn btn-ghost btn-sm">Demo İste</a>
+      <a href="#indir" class="btn btn-primary btn-sm">21 Gün Ücretsiz Dene</a>
+      <button class="burger" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mmenu">
+    <a href="#ozellikler">Özellikler</a><a href="#dene">Canlı Deneyin</a><a href="#kimler">Kimler İçin</a><a href="#fiyat">Fiyatlar</a><a href="#sss">SSS</a><a href="iletisim.html">İletişim</a><a href="demo.html">Demo İste</a>
+    <a href="#indir" class="btn btn-primary">21 Gün Ücretsiz Dene</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill"><b>YENİ</b> Lazerle ölçüm · 3D görünüm · PdWin'e tek dokunuş</span>
+      <h1>Pencereyi anında <span class="rotator" id="rot">ölçün</span>,<br>teklifi müşterinin yanında verin.</h1>
+      <p class="lead">PenCep; pencere ve kapı ölçüsünü telefonunuzla alır, çizer, markanızın gerçek profil verisiyle fiyatlar ve logonuzlu PDF teklifi WhatsApp'tan gönderir. Hem de daha kapıdan çıkmadan.</p>
+      <div class="hero-ctas" id="indir">
+        <a class="store" href="https://play.google.com/store/apps/details?id=com.technosoft.pencep" aria-label="Google Play'den indir">
+          <svg width="26" height="26" viewBox="0 0 24 24"><path fill="#34A853" d="M3.6 2.2 13.8 12 3.6 21.8c-.4-.2-.6-.7-.6-1.2V3.4c0-.5.2-1 .6-1.2z"/><path fill="#FBBC04" d="m17.1 15.3-3.3-3.3 3.3-3.3 3.8 2.2c1.1.6 1.1 1.6 0 2.2z"/><path fill="#EA4335" d="M13.8 12 3.6 21.8c.3.2.8.2 1.3-.1l12.2-6.4z"/><path fill="#4285F4" d="M13.8 12 17.1 8.7 4.9 2.3c-.5-.3-1-.3-1.3-.1z"/></svg>
+          <span><small>HEMEN İNDİRİN</small><b>Google Play</b></span>
+        </a>
+        <a class="store soon" href="#bekleme" aria-label="App Store yakında">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.5 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.800-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.2 3.1-2.500 1-1.400 1.4-2.8 1.4-2.900-.1 0-2.800-1.100-2.800-4.300zM14 5.2c.7-.9 1.200-2 1-3.200-1 0-2.300.7-3 1.600-.7.8-1.300 2-1.100 3.100 1.200.1 2.300-.6 3.100-1.500z"/></svg>
+          <span><small>YAKINDA</small><b>App Store</b></span>
+        </a>
+      </div>
+      <div class="trust">
+        <span><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5.6 5-5-1.4-1.4L9 9.6 7.4 8 6 9.4z"/></svg>21 gün ücretsiz, sınırsız kullanım</span>
+        <span><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5.6 5-5-1.4-1.4L9 9.6 7.4 8 6 9.4z"/></svg>İnternet zayıfken de çalışır</span>
+      </div>
+      <!-- Kullanıcı görselleri: yuvarlaklar içine kullanıcı fotoğrafları eklenecek -->
+      <div class="users">
+        <div class="avatars" aria-hidden="true"><span>Resim<br>eklenecek</span><span>Resim<br>eklenecek</span><span>Resim<br>eklenecek</span><span>Resim<br>eklenecek</span><span>Resim<br>eklenecek</span></div>
+        <div><b>15.350+ kullanıcı</b><small>Technosoft yazılımlarıyla üretim ve satış yapıyor</small></div>
+      </div>
+      <div class="live" id="liveStats"><span class="dot"></span><span>Son 30 günde <b>300’den fazla kişi</b> PenCep’i denemeye başladı</span></div>
+    </div>
+
+    <div class="stage" aria-hidden="true">
+      <!-- Başlıktaki kelimeyle eşleşen ekranlar (sırası words dizisiyle aynı). Görsel yoksa .ph yer tutucu kullanın. -->
+      <div class="device hero-screens">
+        <img class="on" src="img/05-lazer-ile-olcum.webp" alt="Lazer metreyle ölçüm ekranı">
+        <img src="img/01-cizim-ekrani.webp" alt="Çizim ekranı">
+        <img src="img/03-poz-analizi-fiyatli.webp" alt="Fiyatlı poz analizi ekranı">
+        <img src="img/02-3b-gorunum.webp" alt="3D görünüm ekranı">
+      </div>
+      <div class="float f1"><span class="ico" style="background:#FFF0E5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF7A1A" stroke-width="2.2"><path d="M3 7V3h4M21 7V3h-4M3 17v4h4M21 17v4h-4"/></svg></span><div><b>2000 × 1650 mm</b><small>Lazer metreden aktarıldı</small></div></div>
+      <div class="float f2"><span class="ico" style="background:#E8EFFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1957F5" stroke-width="2.2"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg></span><div><b>Teklif hazır</b><small>3 poz · PDF</small></div></div>
+      <div class="float f3"><span class="ico" style="background:#E6F8EF"><svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></span><div><b>WhatsApp ile gönderildi</b><small>Müşteri onayladı ✓</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARKALAR ============
+  Logolar /logolar klasöründe. Yeni marka eklemek için iki sıradan birine bir brand-logo kartı ekleyin (kayan şerit için kartı aria-hidden kopyasıyla birlikte iki kez). -->
+<div class="brands-sec">
+  <div class="brands-head rv">
+    <span class="eyebrow">Profil markaları</span>
+    <h2>Türkiye’de satılan tüm markaların verisi hazır.</h2>
+    <p>Seri, kasa-kanat kesiti, cam ve aksesuar verisi tanımlı gelir. Siz sadece ölçün ve fiyatlayın.</p>
+    <span class="count">80+ yerli ve yabancı profil markası</span>
+  </div>
+    <div class="logo-marquee"><div class="logo-track">
+      <div class="brand-logo"><img src="logolar/adopen-logo-bg.svg" alt="Adopen logosu" loading="lazy"><span class="wm">Adopen</span></div><div class="brand-logo"><img src="logolar/egepen_logo.jpg" alt="Egepen logosu" loading="lazy"><span class="wm">Egepen</span></div><div class="brand-logo"><img src="logolar/kommerling.png" alt="Kömmerling logosu" loading="lazy"><span class="wm">Kömmerling</span></div><div class="brand-logo"><img src="logolar/veka.png" alt="Veka logosu" loading="lazy"><span class="wm">Veka</span></div><div class="brand-logo"><img src="logolar/Adoplaswin.png" alt="Adoplaswin logosu" loading="lazy"><span class="wm">Adoplaswin</span></div><div class="brand-logo"><img src="logolar/bauplast.png" alt="Bauplast logosu" loading="lazy"><span class="wm">Bauplast</span></div><div class="brand-logo"><img src="logolar/enderpen.svg" alt="Enderpen logosu" loading="lazy"><span class="wm">Enderpen</span></div><div class="brand-logo"><img src="logolar/europen.svg" alt="Europen logosu" loading="lazy"><span class="wm">Europen</span></div><div class="brand-logo"><img src="logolar/gedizpen.svg" alt="Gedizpen logosu" loading="lazy"><span class="wm">Gedizpen</span></div><div class="brand-logo"><img src="logolar/kompen.png" alt="Kompen logosu" loading="lazy"><span class="wm">Kompen</span></div><div class="brand-logo"><img src="logolar/pensa.png" alt="Pensa logosu" loading="lazy"><span class="wm">Pensa</span></div><div class="brand-logo"><img src="logolar/pimatech.png" alt="Pimatech logosu" loading="lazy"><span class="wm">Pimatech</span></div><div class="brand-logo"><img src="logolar/schonline_logo.png" alt="Schonline logosu" loading="lazy"><span class="wm">Schonline</span></div><div class="brand-logo"><img src="logolar/windoli-logo-de.png" alt="Windoli logosu" loading="lazy"><span class="wm">Windoli</span></div><div class="brand-logo"><img src="logolar/wintech.png" alt="Wintech logosu" loading="lazy"><span class="wm">Wintech</span></div>
+      <div class="brand-logo" aria-hidden="true"><img src="logolar/adopen-logo-bg.svg" alt="" loading="lazy"><span class="wm">Adopen</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/egepen_logo.jpg" alt="" loading="lazy"><span class="wm">Egepen</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/kommerling.png" alt="" loading="lazy"><span class="wm">Kömmerling</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/veka.png" alt="" loading="lazy"><span class="wm">Veka</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/Adoplaswin.png" alt="" loading="lazy"><span class="wm">Adoplaswin</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/bauplast.png" alt="" loading="lazy"><span class="wm">Bauplast</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/enderpen.svg" alt="" loading="lazy"><span class="wm">Enderpen</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/europen.svg" alt="" loading="lazy"><span class="wm">Europen</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/gedizpen.svg" alt="" loading="lazy"><span class="wm">Gedizpen</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/kompen.png" alt="" loading="lazy"><span class="wm">Kompen</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/pensa.png" alt="" loading="lazy"><span class="wm">Pensa</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/pimatech.png" alt="" loading="lazy"><span class="wm">Pimatech</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/schonline_logo.png" alt="" loading="lazy"><span class="wm">Schonline</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/windoli-logo-de.png" alt="" loading="lazy"><span class="wm">Windoli</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/wintech.png" alt="" loading="lazy"><span class="wm">Wintech</span></div>
+    </div></div>
+    <div class="logo-marquee rev"><div class="logo-track">
+      <div class="brand-logo"><img src="logolar/asas.svg" alt="Asaş logosu" loading="lazy"><span class="wm">Asaş</span></div><div class="brand-logo"><img src="logolar/firatpen.jpg" alt="Fıratpen logosu" loading="lazy"><span class="wm">Fıratpen</span></div><div class="brand-logo"><img src="logolar/Schueco_logo.svg" alt="Schüco logosu" loading="lazy"><span class="wm">Schüco</span></div><div class="brand-logo"><img src="logolar/winsa.svg" alt="Winsa logosu" loading="lazy"><span class="wm">Winsa</span></div><div class="brand-logo"><img src="logolar/alfapen.jpg" alt="Alfapen logosu" loading="lazy"><span class="wm">Alfapen</span></div><div class="brand-logo"><img src="logolar/erpen.png" alt="Erpen logosu" loading="lazy"><span class="wm">Erpen</span></div><div class="brand-logo"><img src="logolar/euroline.png" alt="Euroline logosu" loading="lazy"><span class="wm">Euroline</span></div><div class="brand-logo"><img src="logolar/filpen.png" alt="Filpen logosu" loading="lazy"><span class="wm">Filpen</span></div><div class="brand-logo"><img src="logolar/karpen.png" alt="Karpen logosu" loading="lazy"><span class="wm">Karpen</span></div><div class="brand-logo"><img src="logolar/maestro.png" alt="Maestro logosu" loading="lazy"><span class="wm">Maestro</span></div><div class="brand-logo"><img src="logolar/Pentech.png" alt="Pentech logosu" loading="lazy"><span class="wm">Pentech</span></div><div class="brand-logo"><img src="logolar/bp-logo-variant-01.jpg" alt="BP Variant logosu" loading="lazy"><span class="wm">BP Variant</span></div><div class="brand-logo"><img src="logolar/technoplst.svg" alt="Technoplast logosu" loading="lazy"><span class="wm">Technoplast</span></div><div class="brand-logo"><img src="logolar/winner.svg" alt="Winner logosu" loading="lazy"><span class="wm">Winner</span></div>
+      <div class="brand-logo" aria-hidden="true"><img src="logolar/asas.svg" alt="" loading="lazy"><span class="wm">Asaş</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/firatpen.jpg" alt="" loading="lazy"><span class="wm">Fıratpen</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/Schueco_logo.svg" alt="" loading="lazy"><span class="wm">Schüco</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/winsa.svg" alt="" loading="lazy"><span class="wm">Winsa</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/alfapen.jpg" alt="" loading="lazy"><span class="wm">Alfapen</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/erpen.png" alt="" loading="lazy"><span class="wm">Erpen</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/euroline.png" alt="" loading="lazy"><span class="wm">Euroline</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/filpen.png" alt="" loading="lazy"><span class="wm">Filpen</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/karpen.png" alt="" loading="lazy"><span class="wm">Karpen</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/maestro.png" alt="" loading="lazy"><span class="wm">Maestro</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/Pentech.png" alt="" loading="lazy"><span class="wm">Pentech</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/bp-logo-variant-01.jpg" alt="" loading="lazy"><span class="wm">BP Variant</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/technoplst.svg" alt="" loading="lazy"><span class="wm">Technoplast</span></div><div class="brand-logo" aria-hidden="true"><img src="logolar/winner.svg" alt="" loading="lazy"><span class="wm">Winner</span></div>
+    </div></div>
+  <p class="brands-foot wrap">Markanız listede yok mu? <a href="iletisim.html">Bize iletin, ekleyelim →</a></p>
+</div>
+
+<!-- ============ RAKAMLAR ============ -->
+<div class="wrap" style="padding-top:64px">
+  <div class="stats rv">
+    <div class="stat"><b>36 yıl</b><span>pencere üretim yazılımı tecrübesi</span></div>
+    <div class="stat"><b>15.350+</b><span>Technosoft yazılımı kullanıcısı</span></div>
+    <div class="stat"><b>60+</b><span>ülkede kullanılan çözümler</span></div>
+    <div class="stat"><b>80+</b><span>yerli ve yabancı profil markası</span></div>
+  </div>
+</div>
+
+<!-- ============ ESKİ YOL / PENCEP ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Neden PenCep?</span>
+      <h2>Teklifi geciken iş, rakibe gider.</h2>
+      <p class="lead">Müşteri o gün birkaç firmadan teklif bekliyor. İlk ve net teklifi veren, işi kazanma şansını katlıyor.</p>
+    </div>
+    <div class="compare">
+      <div class="cmp old rv">
+        <h3>Bugüne kadarki yol</h3>
+        <p class="sub">Metre, defter ve ofise dönüş</p>
+        <ol class="steps">
+          <li><span class="n">1</span><div>Metreyle ölç, deftere yaz<small>Rakam karışır, poz unutulur</small></div></li>
+          <li><span class="n">2</span><div>Ofise dön, programda tekrar çiz<small>Aynı iş iki kez yapılır</small></div></li>
+          <li><span class="n">3</span><div>Fiyatı hesapla, teklifi hazırla<small>Fiyat listesi güncel mi?</small></div></li>
+          <li><span class="n">4</span><div>Müşteriyi tekrar ara<small>Müşteri bu arada başka firmayla görüştü</small></div></li>
+        </ol>
+        <div class="total"><span>Teklif süresi</span><b>1–3 gün</b></div>
+      </div>
+      <div class="cmp new rv">
+        <h3>PenCep ile</h3>
+        <p class="sub">Her şey tek ziyarette, müşterinin yanında</p>
+        <ol class="steps">
+          <li><span class="n">1</span><div>Lazer metreyle ya da kamerayla ölç<small>Ölçü doğrudan çizime düşer</small></div></li>
+          <li><span class="n">2</span><div>Açılımı seç, 3D'de müşteriye göster<small>Müşteri ne aldığını görür</small></div></li>
+          <li><span class="n">3</span><div>Marka verisiyle anında fiyatla<small>İskonto, montaj, KDV ayrı ayrı</small></div></li>
+          <li><span class="n">4</span><div>PDF teklifi WhatsApp'tan gönder<small>Onaylanan sipariş PdWin'e gider</small></div></li>
+        </ol>
+        <div class="total"><span>Teklif süresi</span><b>Dakikalar</b></div>
+      </div>
+    </div>
+    <p class="note">* Süreler örnek senaryodur; gerçek kullanıcı verisiyle güncellenecek.</p>
+  </div>
+</section>
+
+<!-- ============ ÖZELLİKLER (ekranlar pencep.com'dan) ============ -->
+<section id="ozellikler" style="background:var(--bg-soft);padding-bottom:56px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Ölçümden siparişe tek uygulama</span>
+      <h2>Sahada ihtiyacınız olan her şey cebinizde.</h2>
+    </div>
+    <nav class="tabs-index rv" aria-label="Özellik başlıkları">
+      <a href="#f-olcum">📐 Ölçüm</a><a href="#f-cizim">🪟 Çizim & 3D</a><a href="#f-fiyat">💰 Fiyatlandırma</a><a href="#f-teklif">📄 Teklif & Cam Listesi</a><a href="#f-siparis">📊 Sipariş & Rapor</a><a href="#f-pdwin">🏭 PdWin Aktarımı</a>
+    </nav>
+
+    <div class="feature rv" id="f-olcum">
+      <div class="f-text">
+        <span class="eyebrow">Ölçüm</span>
+        <h3>Lazer metreyi bağlayın, ölçü çizime düşsün.</h3>
+        <p class="lead">Bluetooth lazer metreden gelen genişlik ve yükseklik doğrudan poza aktarılır. LiDAR'lı iPhone'larda kamerayla köşelere dokunarak da ölçebilirsiniz.</p>
+        <ul><li>Bluetooth lazer metreden doğrudan aktarım</li><li>Kamerayla otomatik ölçüm (LiDAR'lı cihazlarda)</li><li>Elle giriş ve hızlı düzeltme</li></ul>
+        <div class="f-btns"><a href="#indir" class="btn btn-primary">21 Gün Ücretsiz Deneyin</a><a href="#video" class="btn btn-ghost">Nasıl çalışır?</a></div>
+      </div>
+      <div class="f-visual">
+        <div class="duo">
+          <div class="device"><img src="img/05-lazer-ile-olcum.webp" alt="Lazer metreden gelen genişlik ve yükseklik ölçüsü" loading="lazy"></div>
+          <div class="device sm"><div class="ph"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg><b>Resim eklenecek</b><small>Kamerayla ölçüm ekranı</small></div></div>
+        </div>
+        <span class="callout" style="top:40px;left:24px"><i></i>Bluetooth lazer metre</span>
+      </div>
+    </div>
+
+    <div class="feature rev rv" id="f-cizim">
+      <div class="f-text">
+        <span class="eyebrow">Çizim & 3D</span>
+        <h3>Müşteriniz ne aldığını görsün.</h3>
+        <p class="lead">Sabit, sol-sağ açılır, vasistas, çift kanat, kapı, kemerli ve özel şekiller. Kayıt, lambri ve kasa ekleyin; kanatları 3D görünümde açıp kapatın.</p>
+        <ul><li>Seri, cam ve renk seçimi tek ekranda</li><li>Pervaz, kasa genişletme, mermer, panjur kutusu, sineklik</li><li>Kanatları açılıp kapanan 3D önizleme</li></ul>
+        <div class="f-btns"><a href="#dene" class="btn btn-primary">Şimdi Burada Deneyin</a></div>
+      </div>
+      <div class="f-visual">
+        <div class="duo">
+          <div class="device"><img src="img/01-cizim-ekrani.webp" alt="Ölçülendirilmiş üç bölmeli pencere çizimi" loading="lazy"></div>
+          <div class="device sm"><img src="img/02-3b-gorunum.webp" alt="Kanatları açık üç boyutlu pencere görünümü" loading="lazy"></div>
+        </div>
+        <span class="callout b" style="bottom:40px;right:24px"><i></i>3D görünüm</span>
+      </div>
+    </div>
+
+    <div class="feature rv" id="f-fiyat">
+      <div class="f-text">
+        <span class="eyebrow">Fiyatlandırma</span>
+        <h3>Gerçek profil verisi, şeffaf fiyat.</h3>
+        <p class="lead">Fiyat; markanızın profil serisi, kasa-kanat kesitleri, cam, aksesuar ve donanım verisinden hesaplanır. Tüm satış ekibiniz aynı kurallarla fiyat verir.</p>
+        <ul><li>Profil kodları ve ısı değeri</li><li>İskonto, montaj, işçilik ve KDV ayrı kalemler</li><li>Marka verisi cihazda şifreli; zayıf internette de çalışır</li></ul>
+        <div class="f-btns"><a href="#indir" class="btn btn-primary">21 Gün Ücretsiz Deneyin</a></div>
+      </div>
+      <div class="f-visual">
+        <div class="device"><img src="img/03-poz-analizi-fiyatli.webp" alt="Profil kodları, ısı değeri ve fiyat dökümüyle poz analizi" loading="lazy"></div>
+        <span class="callout g" style="top:60px;left:24px"><i></i>Profil kodu + ısı değeri</span>
+        <span class="callout" style="bottom:60px;right:24px"><i></i>Kalem kalem maliyet</span>
+      </div>
+    </div>
+
+    <div class="feature rev rv" id="f-teklif">
+      <div class="f-text">
+        <span class="eyebrow">Teklif & Cam Listesi</span>
+        <h3>Logonuzla profesyonel teklif. Tek dokunuşla WhatsApp'ta.</h3>
+        <p class="lead">Firma unvanınız, logonuz, poz çizimleri ve ölçü tablolarıyla A4 PDF teklif. Malzeme dökümlü teklif analizi ve cam kesim listesi otomatik hazırlanır.</p>
+        <ul><li>WhatsApp, e-posta ya da istediğiniz uygulamayla paylaşım</li><li>Malzeme dökümlü teklif analizi</li><li>Cam kesim listesi ve toplu çizim föyü</li></ul>
+        <div class="f-btns"><a href="#indir" class="btn btn-primary">21 Gün Ücretsiz Deneyin</a></div>
+      </div>
+      <div class="f-visual">
+        <div class="duo">
+          <div class="device"><img src="img/04-siparis-teklif-analizi.webp" alt="Malzeme dökümlü teklif analizi" loading="lazy"></div>
+          <div class="ph a4"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg><b>Resim eklenecek</b><small>Örnek PDF teklif sayfası</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature rv" id="f-siparis">
+      <div class="f-text">
+        <span class="eyebrow">Sipariş & Rapor</span>
+        <h3>Hangi teklif nerede, ciro ne durumda?</h3>
+        <p class="lead">Projelerinizi müşteri adı ya da sipariş numarasıyla bulun. Rapor merkezinde teklif ve sipariş durumlarını, aylık ciro ve satış analizini görün.</p>
+        <ul><li>Proje listesi, poz ve adet takibi</li><li>Teklif / sipariş durum takibi</li><li>Aylık ciro ve satış analizi</li></ul>
+        <div class="f-btns"><a href="#indir" class="btn btn-primary">21 Gün Ücretsiz Deneyin</a></div>
+      </div>
+      <div class="f-visual">
+        <div class="duo">
+          <div class="device"><img src="img/10-siparisler.webp" alt="Sipariş listesi" loading="lazy"></div>
+          <div class="device sm"><img src="img/08-rapor-merkezi.webp" alt="Rapor merkezi" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature rev rv" id="f-pdwin">
+      <div class="f-text">
+        <span class="eyebrow">Üreticiler için</span>
+        <h3>Onaylanan sipariş, tek dokunuşla üretimde.</h3>
+        <p class="lead">Bayinin sahada aldığı ölçü, poz ve açılım bilgileri üreticinin PdWin programına yeniden girilmeden aktarılır. Hatalı ölçü ve tekrar giriş derdi biter.</p>
+        <ul><li>Bayiden fabrikaya kesintisiz veri</li><li>Kesim listesi ve CNC çıktısı PdWin'de hazır</li><li>Technosoft üretim yazılımı kullanan üreticilerle çalışır</li></ul>
+        <div class="f-btns"><a href="demo.html" class="btn btn-primary">Üretici Demosu İsteyin</a></div>
+      </div>
+      <div class="f-visual">
+        <div class="ph wide-ph"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg><b>Resim eklenecek</b><small>PenCep → PdWin aktarım ekranı / görseli</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CANLI DENEYİN ============ -->
+<section id="dene">
+  <div class="wrap">
+    <div class="config rv">
+      <div>
+        <span class="eyebrow" style="color:#FFB27A">Canlı deneyin</span>
+        <h2 style="margin-top:12px">Uygulamayı indirmeden önce bir pencere çizin.</h2>
+        <p class="lead" style="margin-top:14px">Pencerenin fotoğrafını çekin ya da ölçüyü kaydırın. PenCep'te bu işlem sahada saniyeler sürer.</p>
+        <div class="modes" role="tablist" aria-label="Deneme yöntemi">
+          <button role="tab" data-m="cam">📷 Kamerayla<span class="hide-s"> deneyin</span></button><button role="tab" data-m="manual" class="on">✋ Elle<span class="hide-s"> deneyin</span></button>
+        </div>
+        <!-- Kamerayla deneme: fotoğraf cihazda kalır, sunucuya gönderilmez. Canlı yayında HTTPS gerekir. -->
+        <div id="camPanel" hidden>
+          <div class="cam-box">
+            <div class="cam-empty" id="camEmpty">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
+              <b>Kamerayı pencereye doğru tutun</b>
+              <small>Fotoğraf telefonunuzda kalır, hiçbir yere gönderilmez.</small>
+              <div class="cam-btns"><button class="btn btn-primary btn-sm" id="camStart">Kamerayı aç</button><label class="btn btn-line btn-sm">Fotoğraf yükle<input type="file" accept="image/*" capture="environment" id="camFile" hidden></label></div>
+              <small class="cam-err" id="camErr"></small>
+            </div>
+            <video id="camVideo" playsinline muted hidden></video>
+            <img id="camImg" alt="Çekilen pencere fotoğrafı" hidden>
+            <svg id="camSvg" preserveAspectRatio="xMidYMid meet" hidden></svg>
+            <div class="cam-remind">📱 <b>Unutmayın:</b> PenCep uygulamasında lazer metre ve LiDAR ile milimetrik ölçüm, 3D, PDF teklif ve sipariş; hepsi tek uygulamada.</div>
+            <button class="shutter" id="camShot" aria-label="Fotoğraf çek" hidden></button>
+          </div>
+          <div id="camStep2" hidden>
+            <p class="cam-hint">👆 Turuncu noktaları pencerenin 4 köşesine sürükleyin, genişliği yazın.</p>
+            <div class="cam-row"><label for="camW">Genişlik (mm)</label><input id="camW" type="number" inputmode="numeric" value="1480" min="300" max="4000" step="10"></div>
+            <div class="cam-btns"><button class="btn btn-primary btn-sm" id="camApply">Çiz ve fiyatla</button><button class="btn btn-line btn-sm" id="camRetry">Yeniden çek</button></div>
+          </div>
+        </div>
+        <div class="ctrl"><label>Açılım tipi</label>
+          <div class="seg" id="types"><button data-t="sabit">Sabit</button><button data-t="tek">Tek kanat</button><button data-t="cift" class="on">Çift kanat</button><button data-t="vasistas">Vasistas</button><button data-t="surme">Sürme</button></div>
+        </div>
+        <div class="ctrl manual-only"><label for="w">Genişlik</label><div class="range-row"><input type="range" id="w" min="500" max="2600" step="10" value="1480"><output id="wo">1480 mm</output></div></div>
+        <div class="ctrl manual-only"><label for="h">Yükseklik</label><div class="range-row"><input type="range" id="h" min="500" max="2400" step="10" value="1620"><output id="ho">1620 mm</output></div></div>
+      </div>
+      <div class="config-out">
+        <svg id="win" viewBox="0 0 300 300" role="img" aria-label="Pencere çizimi"></svg>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#64748B">Tahmini fiyat (KDV dahil)</div>
+          <div class="price-big" id="price">₺0</div>
+          <p class="cam-note" id="camNote" hidden></p>
+          <table class="tbl" style="margin-top:10px" id="bd"></table>
+          <a href="#indir" class="btn btn-primary btn-sm btn-block" style="margin-top:16px">Gerçek fiyatla deneyin</a>
+          <p class="disc">Demo amaçlı örnek hesaplamadır. Uygulamada fiyat, seçtiğiniz markanın güncel profil verisi ve sizin fiyat kurallarınızla hesaplanır.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KİMLER İÇİN ============ -->
+<section id="kimler" style="padding-top:24px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Kimler için?</span>
+      <h2>Bayiden fabrikaya, herkes aynı veriyle çalışır.</h2>
+    </div>
+    <div class="aud">
+      <div class="aud-card rv">
+        <div class="aud-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10 12 3l9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></div>
+        <h3>Bayiler</h3>
+        <p>Müşterinin evinde ölçün, çizin, fiyatlayın. Teklifi orada verin, işi ilk ziyarette kapatın.</p>
+        <a class="more" href="#indir">21 gün ücretsiz deneyin →</a>
+      </div>
+      <div class="aud-card rv">
+        <div class="aud-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.5 3.3-5.5 6.5-5.5s5.9 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14.6c2.6.2 4.4 2 5 5"/></svg></div>
+        <h3>Satış ekipleri</h3>
+        <p>Her temsilci aynı marka verisi ve fiyat kurallarıyla teklif verir. Lisanslar ve cihazlar tek panelden yönetilir.</p>
+        <a class="more" href="#fiyat">Kurumsal lisans →</a>
+      </div>
+      <div class="aud-card rv">
+        <div class="aud-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V10l6 4V10l6 4V6l6 4v11z"/><path d="M7 17h2M12 17h2M17 17h2"/></svg></div>
+        <h3>Pencere üreticileri</h3>
+        <p>Bayilerinizden gelen sipariş, ölçü ve açılımlar PdWin'e hazır düşer. Bayi ağınızı dijitalleştirin.</p>
+        <a class="more" href="demo.html">Bayi ağı demosu →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SAHADA ============ -->
+<section class="field-sec">
+  <div class="wrap field-grid">
+    <div class="rv">
+      <span class="eyebrow">Sahaya göre tasarlandı</span>
+      <h2 style="margin:12px 0 16px">Arabanız ofis, telefonunuz showroom.</h2>
+      <p class="lead">Şantiyede çekmeyen internet, aceleci müşteriler, onlarca poz. PenCep gerçek saha koşulları düşünülerek tasarlandı.</p>
+      <div class="icons4">
+        <div class="i4">📶<b>Zayıf internette çalışır</b><span>Marka verisi cihazda şifreli saklanır.</span></div>
+        <div class="i4">🌍<b>4 dil</b><span>Türkçe, İngilizce, Arapça, Rusça.</span></div>
+        <div class="i4">📱<b>Telefon ve tablet</b><span>Android'de hazır, iOS çok yakında.</span></div>
+        <div class="i4">🔒<b>Verileriniz sizin</b><span>Hesap silme tek tıkla, uygulama içinden.</span></div>
+      </div>
+    </div>
+    <div class="field-visual rv">
+      <div class="ph person"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.2-6 8-6s7 2 8 6"/></svg><b>Resim eklenecek</b><small>Sahada telefonla ölçüm yapan kullanıcı fotoğrafı</small></div>
+      <div class="device"><img src="img/11-kapi-cizimi.webp" alt="Kapı ve pencere birlikte çizilmiş poz" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VİDEO ============ -->
+<section id="video">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">90 saniyede PenCep</span>
+      <h2>Gerçek bir ölçüm, baştan sona.</h2>
+    </div>
+    <!-- VİDEO: YouTube/Vimeo embed ya da <video> etiketi buraya -->
+    <div class="ph video rv"><span class="play"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span><b style="margin-top:10px">Video eklenecek</b><small>Tanıtım videosu (yaklaşık 90 sn)</small></div>
+    <div class="chapters"><span>0:00 Ölçüm</span><span>0:20 Çizim & 3D</span><span>0:45 Fiyatlandırma</span><span>1:05 PDF & WhatsApp</span><span>1:20 PdWin'e aktarım</span></div>
+  </div>
+</section>
+
+<!-- ============ MUTLU MÜŞTERİ SELFIE ============
+  Her .sf-slide içindeki .ph yerine <img src="img/selfie-1.jpg" alt="..."> koyun. Slaytlar otomatik değişir. -->
+<section class="selfie-sec">
+  <div class="wrap selfie-grid">
+    <div class="selfie-text rv">
+      <span class="eyebrow">Sahadan kareler</span>
+      <h2>Mutlu bayiler, mutlu müşteriler.<br>Hatasız ölçü, hızlı iş.</h2>
+      <p class="lead">Teklif müşterinin yanında hazır olunca iş el sıkışmayla bitiyor. Geriye bir tek hatıra fotoğrafı kalıyor.</p>
+      <div class="joke">😄 <b>Küçük bir not:</b> PenCep pencereleri milimetrik ölçer. Ama bazı kullanıcılarımız heyecandan kamerayı kendilerine çevirdi; yüzlerin köşelerini hâlâ tutturamıyorlar.</div>
+      <div class="f-btns" style="margin-top:24px">
+        <a class="btn btn-primary" href="https://wa.me/905305407587?text=Merhaba%2C%20PenCep%20selfie%27mizi%20g%C3%B6ndermek%20istiyoruz">📸 Selfie'nizi gönderin</a>
+        <a class="btn btn-ghost" href="#indir">21 gün ücretsiz deneyin</a>
+      </div>
+    </div>
+    <div class="rv">
+      <div class="selfie-stage">
+        <div class="selfie-phone" aria-hidden="true">
+          <div class="selfie-screen">
+            <div class="sf-top"><span>PenCep · Ölçüm</span><span class="mode">SELFIE 🤳</span></div>
+            <div class="sf-view">
+              <div class="sf-slide on"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.2-6 8-6s7 2 8 6"/></svg><b>Resim eklenecek</b><small>Selfie 1: bayi + müşteri</small></div><div class="sf-frame"><i></i><i></i><i></i><i></i></div><span class="sf-dim">2 kişi × 😊 mm</span></div>
+              <div class="sf-slide"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.2-6 8-6s7 2 8 6"/></svg><b>Resim eklenecek</b><small>Selfie 2</small></div><div class="sf-frame"><i></i><i></i><i></i><i></i></div><span class="sf-dim">1480 × 😁</span></div>
+              <div class="sf-slide"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.2-6 8-6s7 2 8 6"/></svg><b>Resim eklenecek</b><small>Selfie 3</small></div><div class="sf-frame"><i></i><i></i><i></i><i></i></div><span class="sf-dim">Teklif onaylandı ✓</span></div>
+              <div class="sf-slide"><div class="ph"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.2-6 8-6s7 2 8 6"/></svg><b>Resim eklenecek</b><small>Selfie 4</small></div><div class="sf-frame"><i></i><i></i><i></i><i></i></div><span class="sf-dim">Hata: 0 · Gülümseme: ∞</span></div>
+              <div class="flash" id="sfFlash"></div>
+            </div>
+            <div class="sf-bottom"><span class="sf-thumb"></span><span class="sf-shutter"></span><span class="sf-flip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></svg></span></div>
+          </div>
+        </div>
+        <div class="sf-cap c1" id="sfCap1">Köşeler biraz kaydı 🙈<small>Ama teklif 3 dakikada hazırdı.</small></div>
+        <div class="sf-cap c2" id="sfCap2">Firma Adı · Şehir<small>Bayi + mutlu müşteri</small></div>
+      </div>
+      <div class="sf-dots" id="sfDots"><i class="on"></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ YORUMLAR ============
+  NOT: Aşağıdaki yorumlar ÖRNEK metindir. Gerçek müşteri yorumu, ismi ve fotoğrafıyla değiştirilmeden yayına alınmamalıdır. -->
+<section style="background:var(--bg-soft)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Kullanıcılarımız anlatıyor</span>
+      <h2>Sahadan gelen sonuçlar.</h2>
+    </div>
+    <div class="tgrid">
+      <div class="tcard rv"><div class="stars">★★★★★</div><div class="res">İlk ziyarette kapanan iş oranımız arttı</div><q>Eskiden ölçüyü alıp ertesi gün teklif gönderiyorduk. Şimdi müşteri kahvesini bitirmeden teklif telefonunda oluyor.</q><div class="who"><div class="avatar">Resim<br>eklenecek</div><div><b>Ad Soyad</b><small>Bayi Sahibi · Firma Adı, Şehir</small></div></div><a class="story" href="#">Hikâyenin devamı →</a></div>
+      <div class="tcard rv"><div class="stars">★★★★★</div><div class="res">Ofiste tekrar çizim derdi bitti</div><q>Sahada çizilen poz, aynen fabrikaya gidiyor. Yanlış ölçüden kaynaklanan iadeler ciddi azaldı.</q><div class="who"><div class="avatar">Resim<br>eklenecek</div><div><b>Ad Soyad</b><small>Üretim Müdürü · Firma Adı, Şehir</small></div></div><a class="story" href="#">Hikâyenin devamı →</a></div>
+      <div class="tcard rv"><div class="stars">★★★★★</div><div class="res">Satış ekibi tek fiyat politikasıyla çalışıyor</div><q>Beş temsilcimiz var, artık hepsi aynı listeyle fiyat veriyor. Kim hangi iskontoyu yaptı tartışması kalmadı.</q><div class="who"><div class="avatar">Resim<br>eklenecek</div><div><b>Ad Soyad</b><small>Satış Müdürü · Firma Adı, Şehir</small></div></div><a class="story" href="#">Hikâyenin devamı →</a></div>
+      <div class="tcard rv"><div class="stars">★★★★★</div><div class="res">Müşteri 3D'yi görünce ikna oluyor</div><q>Vasistas ile çift kanat arasında kararsız kalan müşteriye 3D'de açıp gösteriyorum, karar bir dakikada çıkıyor.</q><div class="who"><div class="avatar">Resim<br>eklenecek</div><div><b>Ad Soyad</b><small>Saha Temsilcisi · Firma Adı, Şehir</small></div></div><a class="story" href="#">Hikâyenin devamı →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TECHNOSOFT ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Technosoft güvencesi</span>
+      <h2>Üretimi bilen ekipten, pencere firmaları için.</h2>
+      <p class="lead">36 yıldır pencere fabrikalarının çizim, kesim, optimizasyon ve CNC süreçlerine yazılım geliştiriyoruz. PenCep, üretim hattını tanıyan bu birikimin sahaya inen hali.</p>
+    </div>
+    <div class="timeline rv">
+      <div class="tl"><i></i><div><b>1990</b><span>Pd: Türkiye'nin ilk PVC pencere otomasyon yazılımı</span></div></div>
+      <div class="tl"><i></i><div><b>1993</b><span>Pd Gold</span></div></div>
+      <div class="tl"><i></i><div><b>1999</b><span>PdWin</span></div></div>
+      <div class="tl"><i></i><div><b>2012</b><span>Pd Ekstra & Alm Win</span></div></div>
+      <div class="tl"><i></i><div><b>Bugün</b><span>PenCep: sahadan üretime mobil</span></div></div>
+    </div>
+    <div class="pillars">
+      <div class="pillar rv"><b>Üretim hattını tanır</b><span>Kesim listesi, optimizasyon ve CNC işleme merkezleriyle 36 yıllık entegrasyon tecrübesi.</span></div>
+      <div class="pillar rv"><b>Profil verisi doğru gelir</b><span>80+ profil markasının seri ve kesit verisi, üretimde kullanılan veriyle aynı kaynaktan.</span></div>
+      <div class="pillar rv"><b>Sahadan fabrikaya tek veri</b><span>Teklifte çizilen poz, PdWin'de üretime aynen girer; tekrar çizim yok.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DESTEK ============ -->
+<section style="background:var(--bg-soft)">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="eyebrow">Destek</span><h2>Takıldığınızda karşınızda gerçek bir insan var.</h2></div>
+    <div class="support">
+      <div class="sup rv">💬<b>WhatsApp destek</b><span>Sahadayken bile hızlıca yazın.</span></div>
+      <div class="sup rv">📞<b>Telefon</b><span>Hafta içi 09:00–18:00, Cumartesi 09:00–13:00.</span></div>
+      <div class="sup rv">🎓<b>Birebir kurulum</b><span>Marka ve fiyat ayarlarınızı birlikte yapalım.</span></div>
+      <div class="sup rv">➕<b>Yeni marka talebi</b><span>Markanız listede yoksa bize iletin.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FİYATLAR ============ -->
+<section id="fiyat">
+  <div class="wrap">
+    <div class="sec-head rv" style="margin-bottom:40px">
+      <span class="eyebrow">Fiyatlar</span>
+      <h2>Kullandığınız marka kadar ödeyin.</h2>
+      <p class="lead">21 gün ücretsiz, sınırsız deneyin. Sonra ihtiyacınıza uygun paketi seçin, dilediğiniz zaman iptal edin.</p>
+      <div class="quota"><span class="dot"></span>Birebir kurulum desteği · bu ay kalan kontenjan: <span data-kontenjan>20</span></div>
+    </div>
+    <!-- Fiyat tutarları sitede gösterilmiyor; güncel fiyat uygulamadaki satın alma ekranında. -->
+    <div class="plans">
+      <div class="plan rv"><span class="nb">1</span><h3>1 Marka</h3><p class="pdesc">Tek markayla çalışan bayiler için.</p><ul><li>1 profil markası</li><li>Sınırsız teklif ve PDF</li><li>Lazer & kamera ölçüm</li><li>3D görünüm</li></ul><a href="#indir" class="btn btn-ghost">Ücretsiz Başla</a></div>
+      <div class="plan pop rv"><span class="badge">En çok tercih edilen</span><span class="nb">2</span><h3>2 Marka</h3><p class="pdesc">İki markayı birlikte satanlar için.</p><ul><li>Aynı anda 2 marka</li><li>Sınırsız teklif ve PDF</li><li>Rapor merkezi</li><li>PdWin aktarımı</li></ul><a href="#indir" class="btn btn-primary">Ücretsiz Başla</a></div>
+      <div class="plan rv"><span class="nb">3</span><h3>3 Marka</h3><p class="pdesc">Geniş ürün yelpazesi için.</p><ul><li>Aynı anda 3 marka</li><li>Tüm özellikler</li><li>Öncelikli destek</li></ul><a href="#indir" class="btn btn-ghost">Ücretsiz Başla</a></div>
+      <div class="plan rv"><span class="nb">∞</span><h3>Sınırsız</h3><p class="pdesc">Tüm markalarla çalışanlar için.</p><ul><li>Sınırsız marka</li><li>Tüm özellikler</li><li>Öncelikli destek</li></ul><a href="#indir" class="btn btn-ghost">Ücretsiz Başla</a></div>
+    </div>
+    <p class="plans-note">Aylık ya da yıllık ödeme · Dilediğiniz zaman iptal · Güncel fiyat, deneme sonunda uygulamadaki satın alma ekranında gösterilir.</p>
+    <div class="enterprise rv">
+      <div><h3>Bayi ağı ya da satış ekibiniz mi var?</h3><p>Toplu lisans, lisans anahtarları ve cihazların tek panelden yönetimi.</p></div>
+      <a href="demo.html" class="btn btn-white">Kurumsal Demo İsteyin</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SON ÇAĞRI ============ -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="final rv" id="bekleme">
+      <h2>Bir sonraki teklifinizi müşterinin yanında verin.</h2>
+      <p>21 gün ücretsiz, sınırsız kullanım. Kurulum birkaç dakika.</p>
+      <div class="hero-ctas">
+        <a href="https://play.google.com/store/apps/details?id=com.technosoft.pencep" class="btn btn-white">Google Play'den İndirin</a>
+        <a href="iletisim.html" class="btn btn-line-w">iOS çıkınca haber ver</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SSS ============ -->
+<section id="sss" style="padding-top:24px">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="eyebrow">Sıkça sorulan sorular</span><h2>Aklınızdaki sorular</h2></div>
+    <div class="faq">
+      <details><summary>Kamerayla ölçüm için hangi telefon gerekiyor?</summary><p>Otomatik kamera ölçümü LiDAR sensörlü iPhone modellerinde çalışır. Diğer cihazlarda Bluetooth lazer metreyle ya da elle ölçü girebilirsiniz.</p></details>
+      <details><summary>iPhone ve iPad sürümü ne zaman çıkacak?</summary><p>iOS sürümü çok yakında App Store'da. Bize ulaşırsanız yayınlandığı gün haber veririz.</p></details>
+      <details><summary>İnternet olmadan çalışır mı?</summary><p>Evet. Marka verileri cihazınızda şifreli saklandığı için zayıf ya da kesik bağlantıda da çizim ve fiyatlama yapabilirsiniz.</p></details>
+      <details><summary>Markam listede yok, ne yapabilirim?</summary><p>Marka listesi güncellemelerle büyüyor. Kullandığınız markayı bize iletin, önceliklendirelim.</p></details>
+      <details><summary>PdWin aktarımı nasıl çalışır?</summary><p>Onaylanan sipariş tek dokunuşla üreticinin PdWin programına gider. Bu özellik Technosoft üretim yazılımı kullanan üreticilerle çalışır.</p></details>
+      <details><summary>Ücretsiz deneme sonrası ne oluyor?</summary><p>21 günün sonunda kullandığınız marka sayısına göre aylık ya da yıllık paket seçersiniz. Aboneliğinizi Google Play üzerinden dilediğiniz zaman iptal edebilirsiniz.</p></details>
+      <details><summary>Birebir kurulum desteği kontenjanı nedir?</summary><p>Ekibimiz her ay sınırlı sayıda firmanın marka, fiyat ve teklif ayarlarını birebir yapıyor. Kontenjan dolduğunda deneme yine açık; kurulum desteği bir sonraki aya kalır.</p></details>
+      <details><summary>Birden fazla kullanıcı için lisans alabilir miyim?</summary><p>Evet. Bayi ağları ve satış ekipleri için toplu lisans sunuyoruz; lisans anahtarları ve cihazlar tek panelden yönetilir.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><a href="index.html" class="logo"><img src="img/pencep-ikon.png" alt=""><span>Pen<em>Cep</em></span></a><p>PenCep bir Technosoft uygulamasıdır. Pencere ve kapı üreticileri için çizim, üretim ve otomasyon yazılımları.</p></div>
+      <div><h4>Ürün</h4><ul><li><a href="#ozellikler">Özellikler</a></li><li><a href="#dene">Canlı deneyin</a></li><li><a href="#fiyat">Fiyatlar</a></li><li><a href="#video">Tanıtım videosu</a></li></ul></div>
+      <div><h4>Kimler için</h4><ul><li><a href="#kimler">Bayiler</a></li><li><a href="#kimler">Satış ekipleri</a></li><li><a href="#kimler">Pencere üreticileri</a></li></ul></div>
+      <div><h4>Şirket</h4><ul><li><a href="https://www.technosoft.com.tr/">Technosoft</a></li><li><a href="https://www.technosoft.com.tr/Pdwin.html">PdWin</a></li><li><a href="demo.html">Demo iste</a></li><li><a href="iletisim.html">İletişim</a></li></ul></div>
+      <div><h4>İletişim</h4><ul><li><a href="tel:+902164144935">+90 216 414 49 35</a></li><li><a href="https://wa.me/905305407587">WhatsApp: +90 530 540 75 87</a></li><li><a href="mailto:mail@technosoft.com.tr">mail@technosoft.com.tr</a></li><li>Kadıköy, İstanbul</li></ul></div>
+    </div>
+    <div class="legal"><span>© 2026 Technosoft Bilgisayar Yazılım San. ve Tic. Ltd. Şti.</span><div><a href="#">Gizlilik</a><a href="#">KVKK</a><a href="#">Kullanım koşulları</a><a href="#">English</a></div></div>
+  </div>
+</footer>
+
+<!-- Masaüstü: WhatsApp balonu · Mobil: alta yapışık Hızlı Ulaş çubuğu -->
+<a class="wa-fab" href="https://wa.me/905305407587?text=Merhaba%2C%20PenCep%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." aria-label="WhatsApp ile yazın"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6s.6-1.9.9-2.1c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.6-.1 1.2z"/></svg></a>
+<nav class="quickbar" aria-label="Hızlı ulaş">
+  <a class="qb-call" href="demo.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>Demo İste</a>
+  <a class="qb-wa" href="https://wa.me/905305407587?text=Merhaba%2C%20PenCep%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>WhatsApp'tan Sorun</a>
+</nav>
+
+<script src="assets/site.js"></script>
+<script>
+// ===== KONTENJAN: her ay gerçek sayıyla güncelleyin =====
+const KONTENJAN = 20;
+document.querySelectorAll('[data-kontenjan]').forEach(e=>e.textContent=KONTENJAN);
+
+// Mobil hızlı ulaş çubuğu: hero geçilince görünür
+const qb=document.querySelector('.quickbar');
+addEventListener('scroll',()=>qb.classList.toggle('show',scrollY>420),{passive:true});
+
+// ===== Selfie slaytları (başlık metinlerini buradan düzenleyin) =====
+(function(){
+  const caps=[
+    ['Köşeler biraz kaydı 🙈','Ama teklif 3 dakikada hazırdı.','Firma Adı · Şehir','Bayi + mutlu müşteri'],
+    ['Pencere yerine usta ölçüldü 😄','Pencere de ölçüldü, merak etmeyin.','Firma Adı · Şehir','Saha temsilcisi'],
+    ['İlk ziyarette imza ✍️','Müşteri kahvesini bitirmeden.','Firma Adı · Şehir','Bayi sahibi'],
+    ['Sıfır hata, bol gülümseme','Sipariş tek dokunuşla üretimde.','Firma Adı · Şehir','Pencere üreticisi']
+  ];
+  const slides=document.querySelectorAll('.sf-slide'),dots=document.querySelectorAll('#sfDots i'),fl=document.getElementById('sfFlash');
+  const c1=document.getElementById('sfCap1'),c2=document.getElementById('sfCap2');let i=0;
+  if(!slides.length||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  setInterval(()=>{
+    fl.classList.remove('go');void fl.offsetWidth;fl.classList.add('go');
+    slides[i].classList.remove('on');dots[i].classList.remove('on');
+    i=(i+1)%slides.length;
+    slides[i].classList.add('on');dots[i].classList.add('on');
+    c1.style.opacity=c2.style.opacity=0;
+    setTimeout(()=>{const c=caps[i];c1.innerHTML=c[0]+'<small>'+c[1]+'</small>';c2.innerHTML=c[2]+'<small>'+c[3]+'</small>';c1.style.opacity=c2.style.opacity=1},300);
+  },3400);
+})();
+
+// ===== Canlı gösterge =====
+// Varsayılan metin gerçek ortalamadır. api/canli.json gerçek veriyle beslenirse ({"online":137,"bugun":23})
+// canlı sayıyı gösterir. Dosyayı analitik / Google Play verisinden üreten bir servis gerekir; rastgele sayı yazılmamalı.
+(function(){
+  const el=document.getElementById('liveStats');if(!el)return;
+  fetch('api/canli.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(d=>{
+    if(d&&Number.isFinite(d.online)&&Number.isFinite(d.bugun))
+      el.innerHTML='<span class="dot"></span><span>Şu an sitede <b>'+d.online+'</b> kişi · Bugün <b>'+d.bugun+'</b> firma denemeye başladı</span>';
+  }).catch(()=>{});
+})();
+
+// Hero dönen kelime
+const words=['ölçün','çizin','fiyatlayın','3D gösterin'],rot=document.getElementById('rot');let wi=0;
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){const scr=document.querySelectorAll('.hero-screens>*');setInterval(()=>{wi=(wi+1)%words.length;rot.style.opacity=0;setTimeout(()=>{rot.textContent=words[wi];rot.style.opacity=1;scr.forEach((s,k)=>s.classList.toggle('on',k===wi))},250)},2600)}
+
+// ===== Canlı pencere demosu =====
+const fmt=n=>'₺'+Math.round(n).toLocaleString('tr-TR');
+let type='cift';
+const W=document.getElementById('w'),H=document.getElementById('h'),svg=document.getElementById('win');
+const rates={sabit:{base:2600,sash:0},tek:{base:3300,sash:1},cift:{base:3500,sash:2},vasistas:{base:3400,sash:1},surme:{base:3900,sash:2}};
+function draw(){
+  const w=+W.value,h=+H.value;
+  document.getElementById('wo').textContent=w+' mm';document.getElementById('ho').textContent=h+' mm';
+  const max=230,s=max/Math.max(w,h),pw=w*s,ph=h*s,x=(300-pw)/2+8,y=(300-ph)/2-8,f=8;
+  const glass='#BFF3F7',ink='#7C8796',dash='#33415C';
+  let g=`<rect x="${x}" y="${y}" width="${pw}" height="${ph}" fill="#E4E8EE" stroke="${ink}" stroke-width="${f}"/>`;
+  const ix=x+f/2,iy=y+f/2,iw=pw-f,ih=ph-f;
+  const pane=(px,py,pwid,phei)=>`<rect x="${px+3}" y="${py+3}" width="${pwid-6}" height="${phei-6}" fill="${glass}" stroke="#C9A96E" stroke-width="1.5"/>`;
+  const caseL=(px,py,pwid,phei,hingeLeft)=>{const hx=hingeLeft?px+3:px+pwid-3,ox=hingeLeft?px+pwid-3:px+3;return `<path d="M${hx} ${py+3} L${ox} ${py+phei/2} L${hx} ${py+phei-3}" fill="none" stroke="${dash}" stroke-width="1.2"/>`};
+  if(type==='sabit'){g+=pane(ix,iy,iw,ih)}
+  if(type==='tek'){g+=pane(ix,iy,iw,ih)+caseL(ix,iy,iw,ih,true)}
+  if(type==='cift'){const hw=iw/2;g+=pane(ix,iy,hw,ih)+pane(ix+hw,iy,hw,ih)+`<line x1="${ix+hw}" y1="${iy}" x2="${ix+hw}" y2="${iy+ih}" stroke="${ink}" stroke-width="5"/>`+caseL(ix,iy,hw,ih,true)+caseL(ix+hw,iy,hw,ih,false)}
+  if(type==='vasistas'){g+=pane(ix,iy,iw,ih)+`<path d="M${ix+3} ${iy+ih-3} L${ix+iw/2} ${iy+3} L${ix+iw-3} ${iy+ih-3}" fill="none" stroke="${dash}" stroke-width="1.2"/>`}
+  if(type==='surme'){const hw=iw/2;g+=pane(ix,iy,hw+6,ih)+pane(ix+hw-6,iy,hw+6,ih)+`<line x1="${ix+hw}" y1="${iy}" x2="${ix+hw}" y2="${iy+ih}" stroke="${ink}" stroke-width="4"/>`;const cy=iy+ih/2;g+=`<path d="M${ix+hw*0.3} ${cy} h${hw*0.4} m-8 -6 l8 6 -8 6" fill="none" stroke="#1957F5" stroke-width="2"/><path d="M${ix+hw*1.7} ${cy+20} h-${hw*0.4} m8 -6 l-8 6 8 6" fill="none" stroke="#1957F5" stroke-width="2"/>`}
+  g+=`<g stroke="#64748B" stroke-width="1" fill="#33415C" font-size="11" font-weight="700" font-family="Plus Jakarta Sans,sans-serif">
+   <line x1="${x}" y1="${y+ph+14}" x2="${x+pw}" y2="${y+ph+14}"/><line x1="${x}" y1="${y+ph+9}" x2="${x}" y2="${y+ph+19}"/><line x1="${x+pw}" y1="${y+ph+9}" x2="${x+pw}" y2="${y+ph+19}"/>
+   <text x="${x+pw/2}" y="${y+ph+30}" text-anchor="middle" stroke="none">${w}</text>
+   <line x1="${x-14}" y1="${y}" x2="${x-14}" y2="${y+ph}"/><line x1="${x-19}" y1="${y}" x2="${x-9}" y2="${y}"/><line x1="${x-19}" y1="${y+ph}" x2="${x-9}" y2="${y+ph}"/>
+   <text x="${x-20}" y="${y+ph/2}" text-anchor="middle" stroke="none" transform="rotate(-90 ${x-20} ${y+ph/2})">${h}</text></g>`;
+  svg.innerHTML=g;
+  const m2=(w/1000)*(h/1000),per=2*(w+h)/1000,r=rates[type];
+  const profil=per*r.base*0.55+r.sash*per*420,cam=m2*1850,aks=600+r.sash*1150,isc=1400+m2*350;
+  const ara=profil+cam+aks+isc,kdv=ara*0.2;
+  document.getElementById('price').textContent=fmt(ara+kdv);
+  document.getElementById('bd').innerHTML=`<tr><td>Profil</td><td>${fmt(profil)}</td></tr><tr><td>Cam (${m2.toFixed(2).replace('.',',')} m²)</td><td>${fmt(cam)}</td></tr><tr><td>Aksesuar</td><td>${fmt(aks)}</td></tr><tr><td>Montaj</td><td>${fmt(isc)}</td></tr><tr><td>KDV %20</td><td>${fmt(kdv)}</td></tr>`;
+}
+document.querySelectorAll('#types button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#types button').forEach(x=>x.classList.remove('on'));b.classList.add('on');type=b.dataset.t;draw()}));
+W.addEventListener('input',()=>{camNote.hidden=true;draw()});H.addEventListener('input',()=>{camNote.hidden=true;draw()});draw();
+
+// ===== Kamerayla deneme =====
+const cfg=document.querySelector('.config'),camPanel=document.getElementById('camPanel'),camEmpty=document.getElementById('camEmpty'),camErr=document.getElementById('camErr');
+const vid=document.getElementById('camVideo'),cimg=document.getElementById('camImg'),csvg=document.getElementById('camSvg'),shot=document.getElementById('camShot');
+const step2=document.getElementById('camStep2'),camW=document.getElementById('camW'),camNote=document.getElementById('camNote');
+let stream=null,pts=null,nw=0,nh=0;
+const NS='http://www.w3.org/2000/svg';
+function stopCam(){if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}vid.hidden=true;shot.hidden=true}
+function resetCam(){stopCam();cimg.hidden=true;csvg.hidden=true;step2.hidden=true;camEmpty.style.display='';camErr.textContent=''}
+function setMode(m){
+  document.querySelectorAll('.modes button').forEach(b=>b.classList.toggle('on',b.dataset.m===m));
+  camPanel.hidden=m!=='cam';cfg.classList.toggle('cam-mode',m==='cam');
+  if(m!=='cam')stopCam();
+}
+document.querySelectorAll('.modes button').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.m)));
+// Dokunmatik cihazlarda kamera sekmesi önde açılsın
+if(matchMedia('(pointer:coarse)').matches)setMode('cam');
+
+document.getElementById('camStart').addEventListener('click',async()=>{
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){document.getElementById('camFile').click();return}
+  try{
+    stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'},width:{ideal:1920},height:{ideal:1440}},audio:false});
+    vid.srcObject=stream;await vid.play();
+    camEmpty.style.display='none';vid.hidden=false;shot.hidden=false;
+  }catch(e){camErr.textContent='Kamera açılamadı. İzin verin ya da "Fotoğraf yükle" ile devam edin.'}
+});
+shot.addEventListener('click',()=>{
+  const c=document.createElement('canvas');c.width=vid.videoWidth;c.height=vid.videoHeight;
+  c.getContext('2d').drawImage(vid,0,0);stopCam();loadImg(c.toDataURL('image/jpeg',.85));
+});
+document.getElementById('camFile').addEventListener('change',e=>{const f=e.target.files[0];if(f)loadImg(URL.createObjectURL(f));e.target.value=''});
+document.getElementById('camRetry').addEventListener('click',resetCam);
+
+function loadImg(src){
+  cimg.onload=()=>{
+    nw=cimg.naturalWidth;nh=cimg.naturalHeight;
+    camEmpty.style.display='none';cimg.hidden=false;csvg.hidden=false;step2.hidden=false;
+    csvg.setAttribute('viewBox',`0 0 ${nw} ${nh}`);
+    pts=[[.25,.2],[.75,.2],[.75,.8],[.25,.8]].map(([x,y])=>[x*nw,y*nh]);
+    renderPts();
+  };
+  cimg.src=src;
+}
+function renderPts(){
+  const r=Math.max(nw,nh)*.028,sw=Math.max(nw,nh)*.006;
+  csvg.innerHTML=`<polygon points="${pts.map(p=>p.join(',')).join(' ')}" fill="rgba(25,87,245,.22)" stroke="#FF7A1A" stroke-width="${sw}" stroke-dasharray="${sw*3} ${sw*2}"/>`+
+    pts.map((p,i)=>`<circle data-i="${i}" cx="${p[0]}" cy="${p[1]}" r="${r}" fill="#FF7A1A" stroke="#fff" stroke-width="${sw*1.2}" style="cursor:grab"/>`).join('');
+}
+let drag=-1;
+csvg.addEventListener('pointerdown',e=>{
+  const p=toSvg(e);let best=-1,bd=Infinity;
+  pts.forEach((q,i)=>{const d=Math.hypot(q[0]-p.x,q[1]-p.y);if(d<bd){bd=d;best=i}});
+  if(bd<Math.max(nw,nh)*.12){drag=best;try{csvg.setPointerCapture(e.pointerId)}catch(_){}e.preventDefault()}
+});
+csvg.addEventListener('pointermove',e=>{if(drag<0)return;const p=toSvg(e);pts[drag]=[Math.min(nw,Math.max(0,p.x)),Math.min(nh,Math.max(0,p.y))];renderPts()});
+csvg.addEventListener('pointerup',()=>drag=-1);csvg.addEventListener('pointercancel',()=>drag=-1);
+function toSvg(e){const pt=csvg.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;return pt.matrixTransform(csvg.getScreenCTM().inverse())}
+
+document.getElementById('camApply').addEventListener('click',()=>{
+  const d=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
+  const wpx=(d(pts[0],pts[1])+d(pts[3],pts[2]))/2,hpx=(d(pts[0],pts[3])+d(pts[1],pts[2]))/2;
+  const wmm=Math.max(300,Math.min(4000,+camW.value||1480));
+  const hmm=Math.round(wmm*hpx/wpx/10)*10;
+  W.value=Math.min(2600,Math.max(500,wmm));H.value=Math.min(2400,Math.max(500,hmm));draw();
+  camNote.innerHTML=`Fotoğraftan tahmini yükseklik: <b>${hmm} mm</b>. Gerçek ölçüm için <a href="#indir">PenCep'i indirin</a>: lazer metre ve LiDAR ile milimetrik.`;
+  camNote.hidden=false;
+  if(matchMedia('(max-width:960px)').matches)document.querySelector('.config-out').scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+</script>
+</body>
+</html>
