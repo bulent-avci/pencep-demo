@@ -67,8 +67,6 @@
     <a class="qb-demo" href="demo.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>Demo İste</a>
     <a class="qb-try" href="#indir">21 Gün Ücretsiz</a>`;
   document.body.appendChild(qbar);
-  const qbShow=()=>qbar.classList.toggle('show',scrollY>300||document.documentElement.scrollHeight<=innerHeight+300);
-  addEventListener('scroll',qbShow,{passive:true});qbShow();
 
   // ===== WhatsApp çevrim içi mesajı =====
   // Sadece hafta içi 09:00–18:00 (Türkiye saati) görünür. İsim ve saatleri buradan değiştirin.
