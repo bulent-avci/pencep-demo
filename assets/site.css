@@ -79,7 +79,9 @@ header.scrolled{border-color:var(--line)}
 .quickbar{display:none}
 @media(max-width:760px){
   .wa-fab{display:none!important}
-  .quickbar{display:flex;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:70;padding:10px 10px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);box-shadow:0 -10px 30px -18px rgba(10,22,48,.35)}
+  .quickbar{display:flex;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:70;padding:10px 10px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);box-shadow:0 -10px 30px -18px rgba(10,22,48,.35);transform:translateY(120%);transition:transform .35s ease}
+  .quickbar.show{transform:none}
+  .quickbar:not(.show) .qb-online{opacity:0}
   .quickbar a{display:flex;align-items:center;justify-content:center;gap:6px;font-weight:700;font-size:14.5px;height:50px;border-radius:14px;white-space:nowrap;min-width:0}
   .quickbar .qb-wa{flex:0 0 50px;background:var(--wa)}
   .quickbar .qb-demo{flex:1;background:var(--ink);color:#fff}
